@@ -1,0 +1,65 @@
+*{
+			margin:0px;
+			padding:0px;
+}
+body{
+				font-family:LiSu,"宋体",Monospace,"华文彩云",YouYuan;
+       min-width:650px;/*保证图片不越界 */
+}
+p{
+        text-indent:2em;
+}
+.container-fluid{
+/*       position:absolute;会改变响应式布局 */
+			background-color:#F5F5DC;
+}
+		h1{
+			font-family:STCaiyun,LiSu,"华文彩云",YouYuan,STHupo，Monospace;
+		}		
+  .content-ul{
+    float:left;
+    padding-left:50px;
+  }
+  .content-left{
+     float:left;
+    font-size:23px;
+  }
+  .content-right img{
+    width:250px; 
+    min-width:18%;
+    float:right;  
+  }
+.content{
+  padding:20px;
+/* 	position:absolute;	position overflow解决浮动引起的背景颜色消失但position会改变响应式布局 */
+overflow:hidden;
+/*  */
+  background-color:#F0FFF0;/*#EEE5DE #F4F4F4 #FFF0F5*/
+		}
+
+
+.main{
+   padding:30px;
+   background-color:#FFF0F5;
+}
+.content2-ul,.content3-ul,.content4-ul,.content5-ul,.content6-ul{  
+/*   list-style:none; */
+  text-indent:2em;
+  padding-left:20px;
+} 
+.footer{
+  font-size:1em;
+}
+.footer-entity{
+  font-family:"Arial";/*为显示实体*/
+/*  font-size:10px;*/
+}
+i{
+  display:inline-block;
+  background:url("../img/icon.png");/*https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/icon-police.png?v=md5*/
+  background-size: cover;   /*使图片适应div的大小*/
+  background-repeat:no-repeat;
+  width:10px;
+  height:12px;
+  margin-right:6px;
+}

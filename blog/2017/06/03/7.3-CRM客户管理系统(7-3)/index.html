@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CRM客户管理系统(7-3) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="item">
+<meta name="keywords" content="item Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRM客户管理系统(7-3)">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/06/03/7.3-CRM客户管理系统(7-3)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="item">
+<meta property="og:updated_time" content="2017-09-12T09:56:29.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CRM客户管理系统(7-3)">
+<meta name="twitter:description" content="item">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-7.3-CRM客户管理系统(7-3)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/06/03/7.3-CRM客户管理系统(7-3)/" class="article-date">
+  <time datetime="2017-06-03T01:00:00.000Z" itemprop="datePublished">2017-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CRM客户管理系统(7-3)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>item<br><a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">简写</th>
+<th style="text-align:left">名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CRM</td>
+<td style="text-align:left">客户管理系统</td>
+</tr>
+<tr>
+<td style="text-align:center">CMS</td>
+<td style="text-align:left">内容发布管理系统</td>
+</tr>
+<tr>
+<td style="text-align:center">ERP</td>
+<td style="text-align:left">企业战略信息管理系统</td>
+</tr>
+<tr>
+<td style="text-align:center">OA</td>
+<td style="text-align:left">企业办公办理系统</td>
+</tr>
+</tbody>
+</table>
+<h1 id="项目开发流程"><a href="#项目开发流程" class="headerlink" title="项目开发流程"></a>项目开发流程</h1><p>产品/UI:需求分析，产品定位，市场调查。。。按照产品的规划设计对应的效果图（psd–切图取涂层量像素量颜色值）</p>
+<p>前端/后台工程师</p>
+<p>1、获取所有的客户信息<br>2、增加客户信息<br>3、获取指定的客户信息，信息放到页面对应位置<br>4、修改原有的客户信息<br>5、删除客户信息（把服务器之前存储的某条信息删除）</p>
+<p>服务器后台开发：<br>首先在服务器上搭建一个服务（监听一端口），把项目发布发出<br>1、根据客户端请求把客户端信息准备好，并返回给客户端<br>2、把客户端传递进来的新的客户信息增加到服务器的指定位置（正常情况下是存储到数据库<code>:Oracle,SQL server ,MySQL,Access</code> 中（本案例用文件存储代替数据库存储）），并告诉客户端增加是否成功</p>
+<p>–&gt;API接口文档（应用程序接口）–向服务器拿数据的地址</p>
+<p>客户端前端开发：<br>拿到PSD效果图，编写HTML+CSS等<br>1、通过Ajax向服务器端发送一个请求，把数据获取得到，解析和数据绑定<br>2、把页面输入的信息获取到，通过Ajax传递给服务器，接收服务器端告诉的成功和失败，做后续操作</p>
+<blockquote>
+<p>扩展： API接口文档<br>客户端  &lt;–&gt;  服务端<br>            一般都是JSON格式的字符串</p>
+</blockquote>
+<ul>
+<li>1、获取所有的客户信息<br>URL:/getList  GET<br>参数:(客户端–&gt;服务器端) 无<br>返回:(服务器端–&gt;客户端)<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "code":0,//-&gt;返回结果的标识，0是成功 1失败（无客户信息）...</div><div class="line">  "msg":"成功!",//-&gt;返回结果的标识说明信息</div><div class="line">  "data":[</div><div class="line">       &#123;"id":1,"name":"珠峰培训","age":7,"phone":"13041086186","address":"北京市昌平区回龙观东大街"&#125;,//id是唯一的</div><div class="line">       ......</div><div class="line">    ]//-&gt;包含了所需要的所有的客户信息</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2、增加客户信息<br>URL:/addInfo   POST<br>参数:’{“name”:”xxx”,”age”:xxx,”phone”:””,”address”:””}’ –&gt;客户的ID是唯一的,服务器端在新增加数据的时候,新增数据的ID应该在当前最大ID的基础上累加1得到的<br>返回:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&apos;&#123;</div><div class="line">         &quot;code&quot;:0,//-&gt;0成功 1失败</div><div class="line">         &quot;msg&quot;:&quot;成功!&quot;</div><div class="line">     &#125;&apos;</div></pre></td></tr></table></figure></p>
+<p>3、获取指定的客户信息，信息放到页面对应位置<br>URL:/getInfo  GET<br>参数:?Id=xxx -&gt;需要获取的客户的ID传给服务器端<br>返回:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&apos;&#123;</div><div class="line">    &quot;code&quot;:0,//-&gt;0成功 1失败,没有当前客户</div><div class="line">    &quot;msg&quot;:&quot;当前客户不存在!&quot;,</div><div class="line">    &quot;data&quot;: &#123;&quot;id&quot;:1,&quot;name&quot;:&quot;珠峰培训&quot;,&quot;age&quot;:7,&quot;phone&quot;:&quot;13041086186&quot;,&quot;address&quot;:&quot;北京市昌平区回龙观东大街&quot;&#125;</div><div class="line">&#125;&apos;</div></pre></td></tr></table></figure></p>
+<p>4、修改原有的客户信息<br>URL:/updateInfo POST<br>参数:’{“id”:1,””name”:”xxx”,”age”:xxx,”phone”:””,”address”:””}’<br>返回:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&apos;&#123;</div><div class="line">        &quot;code&quot;:0,//-&gt;0成功 1失败</div><div class="line">        &quot;msg&quot;:&quot;成功!&quot;</div><div class="line">    &#125;&apos;</div></pre></td></tr></table></figure></p>
+<p>5、删除客户信息（把服务器之前存储的某条信息删除）<br>URL:/removeInfo    GET<br>参数:?customId=xxx 想要删除谁就把对应的客户ID传递给服务器<br>返回:<br>    ‘{<br>          “code”:0,//-&gt;0成功 1失败,没有当前客户<br>          “msg”:”当前客户不存在!”<br>    }’</p>
+<p>重要的项目思想：<br>  我有一个页面A，还有一个页面B，我想在B页面中获取到A页面中的内容信息，我们把这种需求叫做页面之间的通信.<br>  实现页面之间的通信：<br>  -&gt;URL问号传参<br>    例如：A是列表页,B是详细页,从A页面中,点击不同的内容跳转到B页面,B页面展示的内容不一样,在A中点击的是谁,那么B页面就展示谁的信息</p>
+<pre><code>A:
+xxx.href=&apos;B.html?标识=值&apos;;
+
+B:
+-&gt;首先把URL传递进来的值获取到
+-&gt;根据传递值的不一样,从服务器端获取到不一样的数据
+-&gt;把获取的数据动态展示在页面上
+</code></pre><p>  -&gt;本地存储<br>  -&gt;IFRAME嵌入<br>  -&gt;目前比较主流的单页面应用开发</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/06/03/7.3-CRM客户管理系统(7-3)/" data-id="cj6wtgx5w002g90vv1lu7ks85" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/06/04/7.4-JSONP & Jquery对它的调用(7-4)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JSONP &amp; Jquery对它的调用(7-4)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/05/24/7.2-Ajax库函数（自制）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ajax库函数（自制）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

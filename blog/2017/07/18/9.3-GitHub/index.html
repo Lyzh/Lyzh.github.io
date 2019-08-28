@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Github | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Github">
+<meta name="keywords" content="总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/07/18/9.3-GitHub/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Github">
+<meta property="og:updated_time" content="2017-09-12T10:01:02.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Github">
+<meta name="twitter:description" content="Github">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.3-GitHub" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/07/18/9.3-GitHub/" class="article-date">
+  <time datetime="2017-07-18T01:00:00.000Z" itemprop="datePublished">2017-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Github
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Github<br><a id="more"></a></p>
+<p><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>使用GitHub发布项目</p>
+<h1 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub:"></a>GitHub:</h1><p><code>https://github.com/</code> </p>
+<ul>
+<li>一个网站,网站搭建了一个<strong>供用户管理代码的平台</strong>(而且是<strong>基于GIT操作进行管理</strong>的一个平台)</li>
+<li><p>[x]    GitHub作用：</p>
+<ul>
+<li><p><strong>框架、类库、插件</strong>的源代码基本上都在GitHub上有托管,供查看学习</p>
+</li>
+<li><p>在这个平台上发布前端的项目文件(GitHub本身就是一个资源文件托管的平台)–但是发布的node.js等服务器环境不运行</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>[x]   使用GitHub创建仓库</p>
+<ul>
+<li><p>[ ]   可以创建多个仓库</p>
+</li>
+<li><p>[ ]  克隆仓库到本地</p>
+</li>
+<li>仓库所在地打开<em>git bash here</em>输入</li>
+<li><p><a href="http://www.zhufengpeixun.cn/course/20" target="_blank" rel="external">参考GIT教程</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/lyzh/myBlog.git（仓库地址）</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]   托管发布</p>
+<ul>
+<li>仓库打开git bash here 输入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .//或 $ git add -A`(所有都添加) </div><div class="line">$ git commit -m&apos;up index.html&apos;</div><div class="line">$ git push origin master//托管</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]   使用GitHub发布项目，创建自己<strong>的静态博客：</strong></p>
+</li>
+<li>创建新仓库（不克隆托管）</li>
+<li><p>(博客可选择一个中意的模板)<code>仓库的Settings-&gt;Options-&gt;GitHub Pages-&gt;Launch Automatic page generator(按钮)-&gt;Continue to Layouts-&gt;Publish</code> Page</p>
+<p>  RESULT:<br>  提示一句话:Your project page has been created at <a href="http://zhouxiaotian.github.io/myBlog/" target="_blank" rel="external">http://zhouxiaotian.github.io/myBlog/</a>. Read more at <a href="https://help.github.com/pages" target="_blank" rel="external">https://help.github.com/pages</a>.<br>  <a href="https://zhouxiaotian.github.io/myBlog/" target="_blank" rel="external">https://zhouxiaotian.github.io/myBlog/</a> 就是我们生成的博客访问地址：<a href="https://用户名.github.io/仓库名/" target="_blank" rel="external">https://用户名.github.io/仓库名/</a> (以后我们可以通过 <a href="https://github.com/用户名/仓库名/看到别人博客的原代码" target="_blank" rel="external">https://github.com/用户名/仓库名/看到别人博客的原代码</a>)<br>  GitHub在访问页面的时候,如果不指定具体访问的xxx.html的话,默认找index.html，所以我们使用生成的地址可以不用编写myBlog/index.html，但是注意只有index.html才可以省略,其他的文件名都是需要加上的</p>
+<p>  GitHub默认为当前的仓库创建了一个gh-pages这个分支,GitHub默认生成的项目的原代码都在gh-pages这个分支下(也就是，以后想管理发布项目的文件或者内容都需要在gh-pages这个分支下进行管理)</p>
+<p>3、为了方便后期的管理，我们把仓库的默认分支切换为gh-pages<br>  Settings-&gt;Branches-&gt;Default branch</p>
+<p>4、把自己开发的项目上传到仓库的gh-pages分支下，替换默认生成的文件<br>  例如：</p>
+<pre><code>-&gt; $ git clone https://github.com/zhouxiaotian/myBlog.git 把远程仓库中的项目文件克隆到本地
+-&gt; 把除了.git文件以外的其它文件没有用的话都可以删掉
+-&gt; 把自己需要展示上传的文件COPY到项目文件中
+-&gt; $ git add .
+-&gt; $ git commit -m&apos;备注信息&apos;
+-&gt; $ git push origin gh-pages  传到的是gh-pages分支下而不是原先的master了
+</code></pre><p>  这样以后就可以把地址告诉给别人访问了:<a href="https://zhouxiaotian.github.io/myBlog/" target="_blank" rel="external">https://zhouxiaotian.github.io/myBlog/</a></p>
+<p>5、锦上添花：把地址生成一个二维码，让别人扫码访问<br>  <strong>草料:<a href="http://cli.im/" target="_blank" rel="external">http://cli.im/</a></strong></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/07/18/9.3-GitHub/" data-id="cj6wtgx62002q90vv3qp9u479" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/07/18/9.3-产品   流式布局     rem布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          产品   流式布局     rem布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/07/14/4.4-jQuery核心（4-4）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery核心（4-4）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

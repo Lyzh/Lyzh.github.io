@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据绑定">
+<meta name="keywords" content="JSON">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/08/29/2.1-数据绑定及DOM回流(2-1)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据绑定">
+<meta property="og:updated_time" content="2017-09-12T09:42:45.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="数据绑定">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2.1-数据绑定及DOM回流(2-1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/29/2.1-数据绑定及DOM回流(2-1)/" class="article-date">
+  <time datetime="2017-08-28T23:50:15.008Z" itemprop="datePublished">2017-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据绑定<br><a id="more"></a></p>
+<hr>
+<h1 id="DOM回流"><a href="#DOM回流" class="headerlink" title="DOM回流"></a>DOM回流</h1><ul>
+<li><p>[x]  回流（重排reflow）：当页面中HTML结构发生改变（增、删元素、位置发生改变），浏览器需要从新计算一遍最新DOM结构，从新对当前页面进行渲染。（尽量减少DOM回流）</p>
+</li>
+<li><p>[x]  重绘：某一个元素的部分样式发生改变（背景颜色），浏览器只需重新渲染当前的元素即可</p>
+</li>
+</ul>
+<hr>
+<h1 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h1><p><strong>知识点</strong></p>
+<ul>
+<li>[x] 省略号代替多余文本</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;<span class="comment">/*ellipsis:截取后以…作为省略；clip:没有省略号*/</span></div><div class="line"><span class="selector-tag">white-space</span><span class="selector-pseudo">:nowrap</span>;<span class="comment">/*强制不换行*/</span></div><div class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;<span class="comment">/*溢出隐藏*/</span></div></pre></td></tr></table></figure>
+<p><strong>三种数据绑定实现方式</strong></p>
+<ul>
+<li><p>[x]  1、动态<strong>创建元素节点</strong>并追加到页面中实现数据绑定</p>
+<ul>
+<li>[ ]  优点： 一个个追加到页面中，对原来的元素无影响</li>
+<li><p>[ ]  劣势： 每创建一个li，就添加到页面中，引发一次DOM回流，引发回流的次数影响我们的性能</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> cur=arr[i];</div><div class="line">	<span class="keyword">var</span> newli=<span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</div><div class="line">	newli.innerHTML=<span class="string">"&lt;span&gt;0"</span>+(i+<span class="number">4</span>)+<span class="string">"&lt;/span&gt;"</span>+cur.title;</div><div class="line">	ul.appendChild(newli);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  2、<strong>字符串拼接（最常用）</strong>:首先循环需要绑定的数据，然后把需要动态绑定的标签以字符串的方式拼接完成后，统一添加到页面（模板引擎数据绑定（jade、kTemplate、angular.js、backbone.js…））</p>
+<ul>
+<li>[ ]  拼接好后统一到页面中，只引发一次回流</li>
+<li><p>[ ]  把拼接的字符串添加到ul中，原有的li鼠标滑过效果消失（原有标签绑定事件消失）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> str=<span class="string">""</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> cur=arr[i];</div><div class="line">	str+=<span class="string">"&lt;li&gt;"</span>;</div><div class="line">	str+=<span class="string">"&lt;span&gt;0"</span>+(i+<span class="number">4</span>)+<span class="string">"&lt;/span&gt;"</span>;</div><div class="line">	str+=cur.title;</div><div class="line">	str+=<span class="string">"&lt;/li&gt;"</span>;</div><div class="line">	<span class="comment">// str+="&lt;li&gt;&lt;span&gt;0"+(i+4)+"&lt;/span&gt;"+cur.title+"&lt;/li&gt;"</span></div><div class="line">&#125;</div><div class="line">ul.innerHTML+=str;<span class="comment">//没加号会覆盖原有内容</span></div><div class="line"><span class="comment">//ul.innerHTML=ul.innerHTML(把之前的li以字符串的方式获得)+str;(拼接完成的整体还是字符串，最后字符串统一添加到页面，浏览器还需要把字符串渲染成对应的标签)</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>【注意】：注意拼接的字符标签空格问题，易出错</p>
+<ul>
+<li><p>[x]  3、<strong>文档碎片</strong></p>
+<ul>
+<li><p>[ ] 避免了回流次数，且对之前的li无影响</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> frg=<span class="built_in">document</span>.createDocumentFragment();<span class="comment">//-&gt;创建一个文档碎片，相当于临时创建一个容器</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="keyword">var</span> cur=arr[i];</div><div class="line">	<span class="keyword">var</span> newli=<span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</div><div class="line">	newli.innerHTML=<span class="string">"&lt;span&gt;0"</span>+(i+<span class="number">4</span>)+<span class="string">"&lt;/span&gt;"</span>+cur.title;</div><div class="line">	frg.appendChild(newli);		</div><div class="line">&#125;</div><div class="line">ul.appendChild(frg);</div><div class="line">frg=<span class="literal">null</span>;<span class="comment">//手动释放堆内存</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>源码</strong> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset="utf-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">	&lt;style type="text/css"&gt;</div><div class="line">		*&#123;</div><div class="line">			margin:0;</div><div class="line">			padding:0;</div><div class="line">		&#125;		</div><div class="line">		#ul&#123;	</div><div class="line">			padding:10px;		</div><div class="line">			width: 200px;</div><div class="line">			height: auto;</div><div class="line">			border: 1px solid blue;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		span&#123;						</div><div class="line">			border:1px solid #ef0;</div><div class="line">			border-radius:50%;			</div><div class="line">		&#125;</div><div class="line">		span.bg&#123;	</div><div class="line">			</div><div class="line">			color: white;</div><div class="line">			background-color: red;</div><div class="line">			border:1px solid red;</div><div class="line">			border-radius:50%;			</div><div class="line">		&#125;</div><div class="line">		li&#123;</div><div class="line">			list-style: none;</div><div class="line"></div><div class="line">			/*一行自动截取*/</div><div class="line">			text-overflow: ellipsis;/*ellipsis:截取后以…作为省略；clip:没有省略号*/</div><div class="line">			white-space:nowrap;/*强制不换行*/</div><div class="line">			overflow: hidden;/*溢出隐藏*/</div><div class="line">		&#125;</div><div class="line">		/*li:hover&#123;</div><div class="line">			background-color: pink;</div><div class="line">		&#125;*/</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;ul id="ul"&gt;</div><div class="line">	&lt;li&gt;&lt;span class="bg"&gt;01&lt;/span&gt;习近平主持中央全面深化改革领导小组会议&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;span class="bg"&gt;02&lt;/span&gt;总理请来四位院士 国务院第一会议室成"科学讲堂"&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;span class="bg"&gt;03&lt;/span&gt;国务院任命倪岳峰任海关总署副署长&lt;/li&gt;</div><div class="line"></div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;script src="json-bind.js" type="text/javascript"&gt;&lt;/script&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	var ul=document.getElementById("ul");</div><div class="line">	var list=document.getElementsByTagName("li");</div><div class="line">	for(var i=0;i&lt;list.length;i++)&#123;</div><div class="line">		list[i].onmouseover=function()&#123;</div><div class="line">			this.style.backgroundColor="blue";</div><div class="line">		&#125;</div><div class="line">		list[i].onmouseout=function()&#123;</div><div class="line">			this.style.backgroundColor="";</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//1、动态创建元素节点并追加到页面中实现数据绑定</div><div class="line">	//优点：一个个追加到页面中，对原来的元素无影响</div><div class="line">	//劣势：每创建一个li，就添加到页面找那个，引发一次DOM回流，引发回流的次数影响我们的性能</div><div class="line">	for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">		var cur=arr[i];</div><div class="line">		var newli=document.createElement("li");</div><div class="line">		newli.innerHTML="&lt;span&gt;0"+(i+4)+"&lt;/span&gt;"+cur.title;</div><div class="line">		ul.appendChild(newli);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//2、字符串拼接（最常用）:首先循环需要绑定的数据，然后把需要动态绑定的标签以字符串的方式拼接完成后，统一添加到页面（模板引擎数据绑定（jade、kTemplate、angular.js、backbone.js…））</div><div class="line">	// 优势：拼接好后统一到页面中，只引发一次回流</div><div class="line">	// 劣势：把拼接的字符串添加到ul中，原有的li鼠标滑过效果消失（原有标签绑定事件消失）</div><div class="line">	var str="";</div><div class="line">	for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">		var cur=arr[i];</div><div class="line">		str+="&lt;li&gt;";</div><div class="line">		str+="&lt;span&gt;0"+(i+4)+"&lt;/span&gt;";</div><div class="line">		str+=cur.title;</div><div class="line">		str+="&lt;/li&gt;";</div><div class="line">		// str+="&lt;li&gt;&lt;span&gt;0"+(i+4)+"&lt;/span&gt;"+cur.title+"&lt;/li&gt;"</div><div class="line">	&#125;</div><div class="line">	ul.innerHTML+=str;//没加号会覆盖原有内容</div><div class="line">	// ul.innerHTML=ul.innerHTML(把之前的li以字符串的方式获得)+str;(拼接完成的整体还是字符串，最后字符串统一添加到页面，浏览器还需要把字符串渲染成对应的标签)</div><div class="line">	</div><div class="line">	//3、文档碎片：</div><div class="line">	var frg=document.createDocumentFragment();//-&gt;创建一个文档碎片，相当于临时创建一个容器</div><div class="line">	for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">		var cur=arr[i];</div><div class="line">		var newli=document.createElement("li");</div><div class="line">		newli.innerHTML="&lt;span&gt;0"+(i+4)+"&lt;/span&gt;"+cur.title;</div><div class="line">		frg.appendChild(newli);		</div><div class="line">	&#125;</div><div class="line">	ul.appendChild(frg);</div><div class="line">	frg=null;//手动释放堆内存</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/08/29/2.1-数据绑定及DOM回流(2-1)/" data-id="cj6wtgx3m000f90vvvnqk4ake" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JSON/">JSON</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/08/29/1.2-原型（如何链式写法&&批量设置公有属性&&继承方式）（1-2）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          原型（如何链式写法&amp;&amp;批量设置公有属性&amp;&amp;继承方式）（1-2）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/08/01/9.5-本地存储(9-5)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">本地存储(9-5)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

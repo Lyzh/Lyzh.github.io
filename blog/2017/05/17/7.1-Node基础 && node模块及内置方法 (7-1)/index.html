@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node基础 &amp;&amp; node模块及内置方法 (7-1) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="node">
+<meta name="keywords" content="node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node基础 &amp;&amp; node模块及内置方法 (7-1)">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/05/17/7.1-Node基础 && node模块及内置方法 (7-1)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="node">
+<meta property="og:updated_time" content="2017-09-12T09:57:29.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node基础 &amp;&amp; node模块及内置方法 (7-1)">
+<meta name="twitter:description" content="node">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-7.1-Node基础 &amp;&amp; node模块及内置方法 (7-1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/05/17/7.1-Node基础 && node模块及内置方法 (7-1)/" class="article-date">
+  <time datetime="2017-05-17T08:00:00.000Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node基础 &amp;&amp; node模块及内置方法 (7-1)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>node<br><a id="more"></a></p>
+<p><strong>JS可以在浏览器中运行，也可以在Node中运行</strong><br><strong>JS是客户端语言，也是服务器端的语言</strong></p>
+<hr>
+<h1 id="node基础"><a href="#node基础" class="headerlink" title="node基础"></a>node基础</h1><h2 id="Node是什么？"><a href="#Node是什么？" class="headerlink" title="Node是什么？"></a>Node是什么？</h2><p>node是供js代码执行的<strong>环境</strong>。等价于浏览器，只不过一般把node安装到服务器端（为了服务端可以使用js）</p>
+<h2 id="NODE-amp-amp-浏览器"><a href="#NODE-amp-amp-浏览器" class="headerlink" title="NODE &amp;&amp;  浏览器"></a>NODE &amp;&amp;  浏览器</h2><ul>
+<li>[x]  <strong>兼容</strong>：<ul>
+<li>[ ] node采用谷歌引擎用来解析渲染JS代码（<strong>不存在兼容问题</strong>）</li>
+<li>[ ] 浏览器引擎不同，存在兼容问题</li>
+</ul>
+</li>
+<li>[x]  <strong>全局js对象</strong>:<ul>
+<li>[ ] node环境下的全局js对象是Global</li>
+<li>[ ] 浏览器中全局js对象是window</li>
+</ul>
+</li>
+<li>[x]  <strong>进行文件操作</strong> : <ul>
+<li>[ ] NODE环境提供对应I/O操作（服务器上文件的增删改查操作）</li>
+<li>[ ] 浏览器安装在客户端，为了保护客户端安全，不提供js对客户电脑的文件进行操作的功能</li>
+</ul>
+</li>
+<li>[x]  node提供给js很多新的方法<br>（http.createServer、fs.writeFileSync、）</li>
+<li>[x]  node基于事件驱动/异步操作的</li>
+</ul>
+<h2 id="如何让js在node中执行"><a href="#如何让js在node中执行" class="headerlink" title="如何让js在node中执行"></a>如何让js在node中执行</h2><ul>
+<li>[x] 在命令窗口执行 ( 相当于js代码在node环境中执行 )<ul>
+<li>[ ] 找到文件目录，<code>shift+右键</code>—&gt; 打开命令窗口，输入<code>node  **.js</code></li>
+<li>[ ] 在命令窗口中执行 <code>node</code>，相当于浏览器控制台用来测试js代码</li>
+</ul>
+</li>
+<li>[x]  webStorm嵌入node，直接右键（存在缓存问题）</li>
+</ul>
+<h2 id="服务创建成功，客户如何给服务端发送请求？"><a href="#服务创建成功，客户如何给服务端发送请求？" class="headerlink" title="服务创建成功，客户如何给服务端发送请求？"></a>服务创建成功，客户如何给服务端发送请求？</h2><ul>
+<li>[ ] 浏览器中输入 <code>http://localhost:端口号</code></li>
+<li>[ ] 浏览器中输入 <code>http://本机IP:端口号</code>(联网)<ul>
+<li>查看本机IP： <code>ipconfig</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="node模块"><a href="#node模块" class="headerlink" title="node模块"></a>node模块</h1><p>（模块：提供方法，供js在node环境中使用）</p>
+<ul>
+<li><p>[x] 内置模块：(node天生提供的)</p>
+<ul>
+<li>[ ] http(创建和操作服务的)–&gt;createServer</li>
+<li>[ ] fs(文件I/O操作)–&gt;writeFileSync</li>
+<li>[ ] url(解析客户端的请求)</li>
+<li>[ ] ……</li>
+</ul>
+</li>
+<li><p>[x] 自定义模块：自己写的js模块<br>  在NODE环境中，创建一个JS都相当于创建了一个模块–&gt;例如：新建a.js,b.js(互不影响)</p>
+<ul>
+<li>b调用a的方法</li>
+<li>[ ] a模块方法被调用，需要通过<code>module.exports</code>方法导出</li>
+<li><p>[ ] b模块使用a模块方法，需要导入a模块<code>var a=require(&quot;./a&quot;);</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//a模块</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"a"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=&#123;</div><div class="line">	<span class="attr">aaafn</span>:fn</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//b模块</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"b"</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a=<span class="built_in">require</span>(<span class="string">"./a"</span>);<span class="comment">//导入a模块</span></div><div class="line">a.aaafn();<span class="comment">//需要a导出到这里</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>[x] 第三方模块：别人写的模块我们来使用<br>需要使用npm这个命令进行管理。npm属于NODE管理第三方模块的操作命令<br>  <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a></p>
+</li>
+<li><p>模块安装:<code>npm install</code>，我们的每一个项目都可以使用这个模块了</p>
+</li>
+<li><p>模块卸载: <code>npm uninstall</code> </p>
+<ul>
+<li><p>例如 : 安装导入less模块（存在问题）</p>
+<ul>
+<li>命令窗口执行<code>npm install less</code>（执行在当前文件下会出现一个node_modules文件夹）</li>
+<li><p>创建一个1.less文件</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@color:</span><span class="number">#fff</span>;</div><div class="line"><span class="selector-class">.transition</span>(<span class="variable">@property</span>:all,<span class="variable">@duration</span>:<span class="number">1s</span>,<span class="variable">@fn</span>:linear,<span class="variable">@delay</span>:<span class="number">0s</span>)&#123;</div><div class="line">    <span class="attribute">-webkit-transition</span>:<span class="variable">@arguments</span>;</div><div class="line">    <span class="attribute">-moz-transition</span>:<span class="variable">@arguments</span>;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">    <span class="attribute">background</span>:<span class="variable">@color</span>;</div><div class="line">    <span class="selector-class">.transiton</span>(<span class="variable">@duration</span>:<span class="number">0.5s</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">    <span class="attribute">background</span>:<span class="variable">@color</span>;</div><div class="line">    <span class="selector-class">.transiton</span>(<span class="variable">@duration</span>:<span class="number">0.2s</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>导入less模块：<code>var less = require(&quot;less&quot;)</code>;使用less.render…等方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">"less"</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"> less.render(fs.readFileSync(<span class="string">"./1.less"</span>, <span class="string">"utf-8"</span>), &#123; <span class="attr">compress</span>:<span class="literal">true</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error, output</span>) </span>&#123;</div><div class="line">     fs.writeFileSync(<span class="string">"./1.css"</span>, output.css, <span class="string">"utf-8"</span>);<span class="comment">//有错</span></div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="node模块内置方法"><a href="#node模块内置方法" class="headerlink" title="node模块内置方法"></a>node模块内置方法</h1><ul>
+<li><p>[x] 三个常用node内置模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var http = require(&quot;http&quot;),</div><div class="line">    url = require(&quot;url&quot;),//--&gt;url.parse()用来解析url地址的</div><div class="line">    fs = require(&quot;fs&quot;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] HTTP</p>
+<ul>
+<li>http.createServer();–&gt;创建一个服务（服务员）</li>
+<li>server1.listen(80);–&gt;为服务监听一个端口80(胸牌号)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var http = require(&quot;http&quot;), //-&gt;创建服务或者管理服务</div><div class="line"></div><div class="line">//当客户端向当前服务（80）发送请求才会执行的，服务成功接收这个请求）</div><div class="line">var server1 = http.createServer(function(request, response) &#123;</div><div class="line">    console.log(&quot;haha&quot;);</div><div class="line">    </div><div class="line">    // request（请求）:存放所有客户的请求信息，包含客户端通过问好传参的方式传给服务器的数据内容</div><div class="line">     // response(响应)：提供了向客户端返回内容和数据的方法</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//当端口监听成功后会触发回调函数执行</div><div class="line">server1.listen(80, function() &#123;</div><div class="line">    console.log(&quot;server is success，listening on 80 port!&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[ ] url</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var url = require(&quot;url&quot;); //--&gt;url.parse()用来解析url地址的</div><div class="line">var str = &quot;http://localhost/index.html?name=11&amp;age=7&quot;;</div><div class="line"></div><div class="line">console.log(url.parse(str, true));//带true解析出的query是对象格式</div><div class="line"></div><div class="line">//Url &#123;……</div><div class="line">//    query: &#123; name: &apos;11&apos;, age: &apos;7&apos; &#125;,</div><div class="line">//    ……</div><div class="line">//&#125;</div><div class="line"></div><div class="line"> console.log(url.parse(str));</div><div class="line">// Url &#123;</div><div class="line">//	……</div><div class="line">//    query: &apos;name=11&amp;age=7&apos;,</div><div class="line">//   ……</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>[ ] fs<ul>
+<li>不管是读取还是写入,内容都是一个字符串。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;); </div><div class="line">var redfs = fs.readFileSync(&quot;./1.html&quot;, &quot;utf-8&quot;);</div><div class="line">// fs.readFileSync([pathname],[encode]):同步读取指定文件中内容（文件内容都读取出才执行下面操作）</div></pre></td></tr></table></figure>
+<ul>
+<li>三个模块</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var http = require(&quot;http&quot;), </div><div class="line">    url = require(&quot;url&quot;), </div><div class="line">    fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">var server1 = http.createServer(function(request, response) &#123;</div><div class="line"></div><div class="line">    // 客户请求：http://localhost/index.html?name=11&amp;age=7</div><div class="line">    // reques.url:/index.html?name=11&amp;age=7</div><div class="line">    var urlobj = url.parse(request.url, true),</div><div class="line">    pathname = urlobj.pathname;</div><div class="line">    // fs.readFileSync([pathname],[encode]):同步读取指定文件中内容（文件内容都读取出才执行下面操作）</div><div class="line">    try &#123;</div><div class="line">        var redfs = fs.readFileSync(&quot;.&quot; + pathname, &quot;utf-8&quot;);</div><div class="line">        response.end(redfs);//--&gt;向客户端返回内容(html的源码)</div><div class="line">    &#125; catch (e) &#123;</div><div class="line">        response.end(&quot;request file is not find&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server1.listen(80, function() &#123;</div><div class="line">    console.log(&quot;server is success，listening on 80 port!&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/05/17/7.1-Node基础 && node模块及内置方法 (7-1)/" data-id="cj6wtgx5p002a90vvl5yt5mvb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/05/19/7.1-node请求资源不存在的处理   &&    静态资源请求的处理（7-1）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          node请求资源不存在的处理   &amp;&amp;    静态资源请求的处理（7-1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/05/17/7.1-Node.js简介配置与第一个应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

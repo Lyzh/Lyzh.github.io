@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>鼠标跟随_放大镜（5-1） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="item">
+<meta name="keywords" content="item">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鼠标跟随_放大镜（5-1）">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/04/25/5.1-鼠标跟随_放大镜（5-1）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="item">
+<meta property="og:updated_time" content="2017-09-12T09:58:16.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鼠标跟随_放大镜（5-1）">
+<meta name="twitter:description" content="item">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-5.1-鼠标跟随_放大镜（5-1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/04/25/5.1-鼠标跟随_放大镜（5-1）/" class="article-date">
+  <time datetime="2017-04-25T06:00:00.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      鼠标跟随_放大镜（5-1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>item<br><a id="more"></a></p>
+<p>效果图13</p>
+<h2 id="注意的问题"><a href="#注意的问题" class="headerlink" title="注意的问题"></a>注意的问题</h2><ul>
+<li><p>[ ] 布局距离<br>图15</p>
+</li>
+<li><p>[ ] 边界判断<br>mark和img-bigger都需要边界判断<br>img_bigger不做边界判断会出现下图情况<br>图13，14</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (left &lt; minL) &#123;</div><div class="line">           tempL = minL;</div><div class="line">           mark.style.left = <span class="number">0</span> + <span class="string">"px"</span>; <span class="comment">//px不能少</span></div><div class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left &gt; maxL) &#123;</div><div class="line">           tempL = maxL;</div><div class="line">           mark.style.left = maxL + <span class="string">"px"</span>;</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           tempL = left;</div><div class="line">           mark.style.left = left + <span class="string">"px"</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">if</span> (top &lt; minT) &#123;</div><div class="line">           tempT = minT;</div><div class="line">           mark.style.top = <span class="number">0</span> + <span class="string">"px"</span>;</div><div class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top &gt; maxT) &#123;</div><div class="line">           tempT = maxT;</div><div class="line">           mark.style.top = maxT + <span class="string">"px"</span>;</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           tempT = top;</div><div class="line">           mark.style.top = top + <span class="string">"px"</span>;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] 大图的跟随移动</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 改变img_bigger的top和left值，随mark框移动而移动</span></div><div class="line">        <span class="comment">// var img_bigger = box_bigger.getElementsByTagName("img")[0]; </span></div><div class="line">    <span class="keyword">var</span> img_bigger=<span class="built_in">document</span>.getElementById(<span class="string">"img_bigger"</span>);    </div><div class="line">        <span class="comment">// left,top不是最终设置的值，也需要做边界判断，用temp临时值判断</span></div><div class="line">    img_bigger.style.top = -tempT * <span class="number">2</span> + <span class="string">"px"</span>;<span class="comment">//注意是负值，mark向右移动，box_bigger需要向左移动</span></div><div class="line">        img_bigger.style.left = -tempL * <span class="number">2</span> + <span class="string">"px"</span>;</div><div class="line"></div><div class="line">             <span class="comment">// 第二种表示方法 </span></div><div class="line">        <span class="keyword">var</span> box_bigger=<span class="built_in">document</span>.getElementById(<span class="string">"box_bigger"</span>);</div><div class="line">        box_bigger.firstElementChild.style.top=-tempT * <span class="number">2</span> + <span class="string">"px"</span>;</div><div class="line">        box_bigger.firstElementChild.style.left=-tempL * <span class="number">2</span> + <span class="string">"px"</span>;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><h3 id="放大2-5陪参看修改数字"><a href="#放大2-5陪参看修改数字" class="headerlink" title="放大2.5陪参看修改数字"></a>放大2.5陪参看<code>修改</code>数字</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="utf-8"&gt;</div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line">    &lt;style type="text/css"&gt;</div><div class="line">    body,</div><div class="line">    div &#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #box &#123;</div><div class="line">        position: relative;</div><div class="line">        width: 400px;</div><div class="line">        height: 400px;</div><div class="line">        margin: 50px;</div><div class="line">        box-shadow: 0px 0px 5px #888888;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #box img &#123;</div><div class="line">        width: 100%;</div><div class="line">        height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #mark &#123;</div><div class="line">        display: none;</div><div class="line">        position: absolute;</div><div class="line">        top: 0;</div><div class="line">        left: 0;</div><div class="line">        width: 50%;</div><div class="line">        height: 50%;</div><div class="line">        background-color: #000;</div><div class="line">        opacity: 0.5;</div><div class="line">        filter: alpha(opacity=50);</div><div class="line">        /*兼容IE*/</div><div class="line">        cursor: move;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #box_bigger &#123;</div><div class="line">        display: none;</div><div class="line">        position: absolute;</div><div class="line">        overflow: hidden;</div><div class="line">        top: 50px;</div><div class="line">        left: 470px;</div><div class="line">        width: 400px;/*修改500px*/        </div><div class="line">        height: 400px;/*修改500px*/  </div><div class="line">        box-shadow: 0px 0px 5px #888888;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #box_bigger img &#123;</div><div class="line">        position:absolute;/*针对于box_bigger定位*/</div><div class="line">        top:0;</div><div class="line">        left:0;</div><div class="line">        /*修改：这里不变（图片相对于box_bigger）此时1000px大小的图，相当于400px的原图放大2.5倍*/</div><div class="line">        width: 200%;</div><div class="line">        /*图片比较大*/</div><div class="line">        height: 200%;</div><div class="line">    &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;div id="box"&gt;</div><div class="line">    &lt;img src="http://wx2.sinaimg.cn/mw690/9c698161gy1fgkp1vtrcyj209q09qq5g.jpg"&gt;</div><div class="line">    &lt;div id="mark"&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div id="box_bigger"&gt;</div><div class="line">    &lt;img  id="img_bigger" src="http://wx2.sinaimg.cn/mw690/9c698161gy1fgkp1w2icgj20m80m8n5d.jpg"&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script type="text/javascript"&gt;</div><div class="line">    //使用 ，则记得上一句的；一定要去掉</div><div class="line">    var box = document.getElementById('box'),</div><div class="line">        mark = document.getElementById("mark");</div><div class="line"></div><div class="line">    function setPosition(e) &#123;</div><div class="line">        e = e || window.event;</div><div class="line">        var top = e.clientY - box.offsetTop - (mark.offsetHeight / 2),</div><div class="line">            left = e.clientX - box.offsetLeft - (mark.offsetWidth / 2)</div><div class="line">        var minL = 0,</div><div class="line">            minT = 0,</div><div class="line">            maxL = box.offsetWidth - mark.offsetWidth,</div><div class="line">            maxT = box.offsetHeight - mark.offsetHeight;</div><div class="line">        var tempL, tempT;//必须用临时的值做边界判断</div><div class="line"></div><div class="line">        //判断边界：mark和img_bigger都需要边界判断</div><div class="line">        if (left &lt; minL) &#123;</div><div class="line">            tempL = minL;</div><div class="line">            mark.style.left = 0 + "px"; //px不能少</div><div class="line">        &#125; else if (left &gt; maxL) &#123;</div><div class="line">            tempL = maxL;</div><div class="line">            mark.style.left = maxL + "px";</div><div class="line">        &#125; else &#123;</div><div class="line">            tempL = left;</div><div class="line">            mark.style.left = left + "px";</div><div class="line">        &#125;</div><div class="line">        if (top &lt; minT) &#123;</div><div class="line">            tempT = minT;</div><div class="line">            mark.style.top = 0 + "px";</div><div class="line">        &#125; else if (top &gt; maxT) &#123;</div><div class="line">            tempT = maxT;</div><div class="line">            mark.style.top = maxT + "px";</div><div class="line">        &#125; else &#123;</div><div class="line">            tempT = top;</div><div class="line">            mark.style.top = top + "px";</div><div class="line">        &#125;</div><div class="line">        // 改变img_bigger的top和left值，随mark框移动而移动</div><div class="line">        // var img_bigger = box_bigger.getElementsByTagName("img")[0]; </div><div class="line">        var img_bigger=document.getElementById("img_bigger");    </div><div class="line">        // left,top不是最终设置的值，也需要做边界判断，注意是负值，mark向右移动，box_bigger需要向左移动</div><div class="line">        img_bigger.style.top = -tempT * 2 + "px";//修改i：2.5（mark移动200，img_bigger移动1000-500，所以是2.5倍）</div><div class="line">        img_bigger.style.left = -tempL * 2 + "px";</div><div class="line"></div><div class="line">        // 第二种表示方法 </div><div class="line">        // var box_bigger=document.getElementById("box_bigger");</div><div class="line">        // box_bigger.firstElementChild.style.top=-tempT * 2 + "px";</div><div class="line">        // box_bigger.firstElementChild.style.left=-tempL * 2 + "px";</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    box.onmouseenter = function(e) &#123;</div><div class="line">        mark.style.display = "block";</div><div class="line">        box_bigger.style.display = "block";</div><div class="line">        setPosition(e);</div><div class="line">    &#125;</div><div class="line">    box.onmousemove = function(e) &#123;</div><div class="line">        setPosition(e);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    box.onmouseleave = function(e) &#123;</div><div class="line">        mark.style.display = "none";</div><div class="line">        box_bigger.style.display = "none";</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/04/25/5.1-鼠标跟随_放大镜（5-1）/" data-id="cj6wtgx5a001w90vvc2yilyys" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/item/">item</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/04/27/5.2-MouseEvent -- KeyboardEvent以及事件兼容问题（5）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MouseEvent || KeyboardEvent以及事件兼容问题（5）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/04/24/5.1-鼠标跟随(jQuery5)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">鼠标跟随(jQuery5)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

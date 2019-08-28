@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>移动端场景应用</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="../css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="../css/swiper.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<section class="main">
+    <!--music-->
+    <div class="music" id="musicMenu">
+        <audio src="audio/beyond.mp3" preload="none" loop id="musicAudio" controls></audio> <!--一般音频不太大手机都能兼容 controls表示显示控件
+        优化自动播放不用属性autoplay：用js自动播放-->
+        <!--<audio>
+            <source src="audio/beyond.mp3" type="audio/mpeg"/>
+            <source src="audio/beyond.wav" type="audio/wav"/>
+            <source src="audio/beyond.ogg" type="audio/ogg"/>
+        </audio>-->
+    </div>
+
+    <!--container-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--slide1-->
+            <div class="swiper-slide page1"><!-- page1自己的样式-->
+                <img src="img/page1-text1.png"/>
+                <img src="img/page1-text2.png"/>
+                <img src="img/page1-text3.png"/>
+                <img src="img/page1-text4.png"/>
+            </div>
+            <!--slide2-->
+            <div class="swiper-slide page2" >
+                <img src="img/page2-text1.png"/>
+                <img src="img/page2-text2.png"/>
+                <img src="img/page2-text3.png"/>
+                <img src="img/page2-text4.png"/>
+            </div>
+        </div>
+    </div>
+
+    <!--arrow-->
+    <div class="arrow"></div>
+</section>
+
+<script charset="utf-8" type="text/javascript" src="../js/swiper.min.js"></script>
+<!-- 为解决移动端click延迟300ms问题 -->
+<!-- <script charset="utf-8" type="text/javascript" src="../js/fastclick.min.js"></script> -->
+<script charset="utf-8" type="text/javascript" src="index.js"></script>
+</body>
+</html>

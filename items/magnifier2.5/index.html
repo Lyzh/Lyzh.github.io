@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    body,
+    div {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 50px;
+        box-shadow: 0px 0px 5px #888888;
+    }
+    
+    #box img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #mark {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background-color: #000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        /*兼容IE*/
+        cursor: move;
+    }
+    
+    #box_bigger {
+        display: none;
+        position: absolute;
+        overflow: hidden;
+        top: 50px;
+        left: 450px;
+        width: 500px;/*外框固定*/        
+        height: 500px;
+        box-shadow: 0px 0px 5px #888888;
+    }
+    
+    #box_bigger img {
+        position:absolute;/*针对于box_bigger定位*/
+        top:0;
+        left:0;
+        width: 200%;
+        /*图片比较大*/
+        height: 200%;
+    }
+    </style>
+</head>
+<div id="box">
+    <img src="http://wx2.sinaimg.cn/mw690/9c698161gy1fgkp1vtrcyj209q09qq5g.jpg">
+    <div id="mark"></div>
+</div>
+<div id="box_bigger">
+    <img  id="img_bigger" src="http://wx2.sinaimg.cn/mw690/9c698161gy1fgkp1w2icgj20m80m8n5d.jpg">
+</div>
+
+<body>
+    <script type="text/javascript">
+    //使用 ，则记得上一句的；一定要去掉
+    var box = document.getElementById('box'),
+        mark = document.getElementById("mark");
+
+    function setPosition(e) {
+        e = e || window.event;
+        var top = e.clientY - box.offsetTop - (mark.offsetHeight / 2),
+            left = e.clientX - box.offsetLeft - (mark.offsetWidth / 2)
+        var minL = 0,
+            minT = 0,
+            maxL = box.offsetWidth - mark.offsetWidth,
+            maxT = box.offsetHeight - mark.offsetHeight;
+        var tempL, tempT;//必须用临时的值做边界判断
+
+        //判断边界：mark和box_bigger的img都需要边界判断
+        if (left < minL) {
+            tempL = minL;
+            mark.style.left = 0 + "px"; //px不能少
+        } else if (left > maxL) {
+            tempL = maxL;
+            mark.style.left = maxL + "px";
+        } else {
+            tempL = left;
+            mark.style.left = left + "px";
+        }
+        if (top < minT) {
+            tempT = minT;
+            mark.style.top = 0 + "px";
+        } else if (top > maxT) {
+            tempT = maxT;
+            mark.style.top = maxT + "px";
+        } else {
+            tempT = top;
+            mark.style.top = top + "px";
+        }
+        // 改变大图的img的top和left值，随mark框移动而移动
+        // var img_bigger = box_bigger.getElementsByTagName("img")[0]; 
+        var img_bigger=document.getElementById("img_bigger");    
+        // left,top不是最终设置的值，也需要做边界判断
+        img_bigger.style.top = -tempT * 2.5 + "px";//注意是负值，mark向右移动，box_bigger需要向左移动
+        img_bigger.style.left = -tempL * 2.5 + "px";
+
+        // 第二种表示方法 
+        // var box_bigger=document.getElementById("box_bigger");
+        // box_bigger.firstElementChild.style.top=-tempT * 2 + "px";
+        // box_bigger.firstElementChild.style.left=-tempL * 2 + "px";
+    }
+
+    box.onmouseenter = function(e) {
+        mark.style.display = "block";
+        box_bigger.style.display = "block";
+        setPosition(e);
+    }
+    box.onmousemove = function(e) {
+        setPosition(e);
+
+    }
+    box.onmouseleave = function(e) {
+        mark.style.display = "none";
+        box_bigger.style.display = "none";
+
+    }
+    </script>
+</body>
+
+</html>

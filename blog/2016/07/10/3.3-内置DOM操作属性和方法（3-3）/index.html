@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>内置DOM操作属性和方法（3-3） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DOM">
+<meta name="keywords" content="DOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内置DOM操作属性和方法（3-3）">
+<meta property="og:url" content="http://lyzh.tk/blog/2016/07/10/3.3-内置DOM操作属性和方法（3-3）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DOM">
+<meta property="og:updated_time" content="2017-09-12T09:51:18.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内置DOM操作属性和方法（3-3）">
+<meta name="twitter:description" content="DOM">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-3.3-内置DOM操作属性和方法（3-3）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/07/10/3.3-内置DOM操作属性和方法（3-3）/" class="article-date">
+  <time datetime="2016-07-10T06:00:00.000Z" itemprop="datePublished">2016-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内置DOM操作属性和方法（3-3）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DOM<br><a id="more"></a></p>
+<h1 id="内置DOM操作属性和方法总结"><a href="#内置DOM操作属性和方法总结" class="headerlink" title="内置DOM操作属性和方法总结"></a>内置DOM操作属性和方法总结</h1><h2 id="获取页面元素方法"><a href="#获取页面元素方法" class="headerlink" title="获取页面元素方法"></a>获取页面元素方法</h2><blockquote>
+<p>document.getElementById()<br>document.getElementsByTagName()</p>
+<p><strong>document.getElementsByClassName()</strong>;//-&gt;IE6-8不兼容<br><em>document.getElementsByName()</em>;//-&gt;IE中只对表单元素的name起作用(不用处理，因为一般也只给表单设置name)<br>document.body<br>document.documentElement<br><strong>context.querySelector/contetx.querySelectorAll</strong>//-&gt;在IE6-8不兼容，通过这个获取的节点集合不存在DOM映射</p>
+<p><code>增加</code><br><strong>children</strong>–&gt;（兼容）获取某个容器中所有元素子节点（可筛选出制定标签）<br>//（jQuery没有这三种方法）<br><strong>getElementsByClass</strong>（兼容）通过元素样式类名获取一组元素（jQuery无此方法，但邠选择器基于此方法的原理）</p>
+</blockquote>
+<h2 id="节点间关系的属性-常用节点：元素、文本、document、注释"><a href="#节点间关系的属性-常用节点：元素、文本、document、注释" class="headerlink" title="节点间关系的属性(常用节点：元素、文本、document、注释)"></a>节点间关系的属性(常用节点：元素、文本、document、注释)</h2><blockquote>
+<p><a href="http://www.cnblogs.com/xiaohuochai/p/5785297.html" target="_blank" rel="external">http://www.cnblogs.com/xiaohuochai/p/5785297.html</a></p>
+<p>parentNode<br>childNodes<br><strong>children</strong>-&gt;在IE6-8获取与标准的不一样</p>
+<p>previousSibling / <strong>previousElementSibling</strong><br>nextSibling/<strong>nextElementSibling</strong><br>firstChild/<strong>firstElementChild</strong><br>lastChild/<strong>lastElementChild</strong><br>【注意】上面4个的前面都会将空格/换行当做节点处理，找到相应的元素会用后面几个（IE6,7,8不兼容）</p>
+<p><code>增加</code><br>兼容的<strong>previousElementSibling</strong><br>兼容的<strong>nextElementSibling</strong><br>获取上一个哥哥元素(prev)，获取下一个弟弟元素节点（next），获取所有哥哥（prevAll），获取所有弟弟（nextAll），获取相邻的（sibling），获取所有兄弟（siblings）<br>兼容的<strong>firstElementChild</strong>获取第一个元素子节点<br>兼容的<strong>lastElementChild</strong>获取最后一个元素</p>
+<p><strong>index</strong>获取当前元素的索引</p>
+</blockquote>
+<h2 id="DOM增删改"><a href="#DOM增删改" class="headerlink" title="DOM增删改"></a>DOM增删改</h2><blockquote>
+<p>creatElement<br>document.createDocumentFragment()<br>appendChild();向container末尾追加元素<br>insertBefore<br>cloneNode(true/false)<br>replaceChild<br>removeChild<br>get/set/removeAttribute</p>
+<p><code>增加</code><br><strong>prepend</strong>-&gt;向container开头追加元素（appendChild对应） 增加到某一个容器的开头<br><strong>insertAfter</strong>-&gt;（insertBefore增加到某容器前面对应）增加到容器中某一个元素后面</p>
+</blockquote>
+<h2 id="DOM盒子模型"><a href="#DOM盒子模型" class="headerlink" title="DOM盒子模型"></a>DOM盒子模型</h2><table>
+<thead>
+<tr>
+<th>–</th>
+<th>系列</th>
+<th>Width/Height</th>
+<th>值</th>
+<th>Left/Top</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无关溢出</td>
+<td><code>client系列</code></td>
+<td><strong>clientWidth/clientHeight</strong></td>
+<td>设置+填充</td>
+<td><strong>clientLeft/clientTop</strong></td>
+<td>边框左/高</td>
+</tr>
+<tr>
+<td>无关溢出</td>
+<td><code>offset系列</code></td>
+<td><strong>offsetWidth/offsetHeight</strong></td>
+<td>设置+填充+边框</td>
+<td><strong>offsetLeft/offsetTop:</strong></td>
+<td>外边距父内边的偏移</td>
+</tr>
+<tr>
+<td>有关溢出</td>
+<td><code>scroll系列</code></td>
+<td><strong>scrollWidth/scrollHeight</strong></td>
+<td>真实内容+填充</td>
+<td><strong>scrollLeft/scrollTop</strong></td>
+<td>卷去的宽/高</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="增css样式类方法"><a href="#增css样式类方法" class="headerlink" title="增css样式类方法"></a>增css样式类方法</h1><blockquote>
+<p><code>css样式类的方法</code><br><strong>hasClass</strong> 判断是否存在一个样式类名<br><strong>addClass</strong> 增加样式类名<br><strong>removeClass</strong> 删除样式类名</p>
+</blockquote>
+<p>//jQuery的css方法包含下面3个方法<br><strong>getCss</strong><br><strong>setCss</strong><br><strong>setGroupCss</strong></p>
+<hr>
+<p>在高级单例模式（自执行函数，形成不销毁的作用域）使用<strong><code>var flag = &quot;getComputedStyle&quot; in window;</code> 只检测一次浏览器兼容性！<br>（flag不销毁，存储判断当前浏览器是否兼容属性，兼容–&gt;标准浏览器。不兼容–&gt;当前浏览器IE6-8）</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var utils = (function() &#123; </div><div class="line">    function afn()&#123;&#125;;</div><div class="line">    function bfn()&#123;&#125;;</div><div class="line">    return &#123;</div><div class="line">        a:afn,</div><div class="line">        b:bfn</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<h2 id="公用库函数"><a href="#公用库函数" class="headerlink" title="公用库函数"></a>公用库函数</h2><ul>
+<li>[x] <strong>children</strong> <ul>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//-&gt;兼容：获取某个元素的所有子节点（还可以筛选出制定标签名）模拟jquery下的children</span></div><div class="line"> children: <span class="function"><span class="keyword">function</span>(<span class="params">ele, tagName</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> ary = [];</div><div class="line">        <span class="comment">//-&gt;IE6-8不能使用内置的children属性</span></div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/MSIE(6|7|8)/i</span>.test(navigator.userAgent)) &#123;</div><div class="line">            <span class="keyword">var</span> childs = ele.childNodes; <span class="comment">//childNodes兼容</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; childs.length; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (childs[i].nodeType == <span class="number">1</span>) &#123;</div><div class="line">                    ary.push(childs[i]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//标准浏览器下，直接使用children即可,但是获取的是元素集合（类数组），为了和IE6-8保持一致，借用数组原型slice，实现将类数组转化为数组</span></div><div class="line">            ary = <span class="built_in">Array</span>.prototype.slice.call(ele.children);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//二次筛选（如果传tagName这个参数则需要二次筛选，与tagName同的留下，不同的删掉）</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> tagName == <span class="string">'string'</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ary.length; i++) &#123; <span class="comment">//这种写法随着</span></div><div class="line">                <span class="keyword">var</span> cur = ary[i];</div><div class="line">                <span class="keyword">if</span> (cur.nodeName.toUpperCase() != tagName.toUpperCase()) &#123;</div><div class="line">                    ary.splice(i, <span class="number">1</span>);</div><div class="line">                    i--;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ary;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2016/07/10/3.3-内置DOM操作属性和方法（3-3）/" data-id="cj6wtgx4h001590vvcv6ahfxu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/DOM/">DOM</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/07/12/4.1-动画基础及优化（4-1）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/04/3.1-屏幕13个盒子属性&&处理兼容&获取元素偏移量（3-1）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">屏幕13个盒子属性&amp;&amp;处理兼容&amp;获取元素偏移量（3-1）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

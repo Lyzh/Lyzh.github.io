@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>对象模式（1-2） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对象模式">
+<meta name="keywords" content="js ECMAScript 面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象模式（1-2）">
+<meta property="og:url" content="http://lyzh.tk/blog/2016/06/22/1.2-对象模式（1-2）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="对象模式">
+<meta property="og:updated_time" content="2017-09-12T09:41:03.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对象模式（1-2）">
+<meta name="twitter:description" content="对象模式">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1.2-对象模式（1-2）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/06/22/1.2-对象模式（1-2）/" class="article-date">
+  <time datetime="2016-06-22T00:32:00.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对象模式（1-2）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对象模式<br><a id="more"></a></p>
+<p><strong>创建对象模式：</strong>（待整理）<br>–&gt;单例模式（手工作业模式）<br>优点：虽然解决了分组作用，<br>弊端：但是不能批量生产</p>
+<p>–&gt;工厂模式(批量生产)<br>优点：能批量生产<br>缺点：创建对象全是object（不能识别Date、Array）<br>–&gt;构造函数模式<br>优点：解决识别对象类型问题，拥有类和实例的概念，不用手动创建对象<br>缺点：实例相互独立,公用方法需要每个实例都重新创建<br>–&gt;原型模式<br>优点：解决方法或属性公有的问题<br>缺点：</p>
+<hr>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>[ ] 对象：万物皆对象</li>
+<li>[ ] 类：把对象细分(都是function数据类型)<ul>
+<li>内置类（Array、Object、Function、RexExp等）</li>
+<li>自定义类（构造函数模式）</li>
+</ul>
+</li>
+<li><p>[ ] 实例：类中具体的事物（都是object数据类型）</p>
+<h2 id="object类型的作用"><a href="#object类型的作用" class="headerlink" title="object类型的作用"></a>object类型的作用</h2></li>
+<li><p>[x] 把描述同一个事物（object）的属性和方法放到一个内存空间下，起到<strong>分组作用</strong>，这样不同事物之间<strong>即使属性名相同相互不会发生冲突</strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="单例模式-项目中常用-手工作业模式"><a href="#单例模式-项目中常用-手工作业模式" class="headerlink" title="单例模式 项目中常用(手工作业模式)"></a>单例模式 <code>项目中常用</code>(手工作业模式)</h2><ul>
+<li><p>[x] 概念</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person1=&#123;<span class="attr">age</span>:<span class="number">11</span>&#125;;</div><div class="line"><span class="keyword">var</span> person2=&#123;<span class="attr">age</span>:<span class="number">22</span>&#125;;</div><div class="line">person1.name</div></pre></td></tr></table></figure>
+</li>
+<li><p>这种分组编写代码的模式叫<strong>单例模式</strong></p>
+<pre><code>- 单例模式中的对象名也叫做**命名空间**
+</code></pre></li>
+</ul>
+<p><br><br><br></p>
+<ul>
+<li><p>[x] 用途 : 项目中可用单例模式进行<strong>模块化开发</strong>;<br><br><br><br></p>
+<ul>
+<li>[ ] <strong>模块化开发</strong><br><br><br><br></li>
+<li><strong>概念 ：</strong>较大项目，需要多个人协作，一般会根据当前项目的<em>需求划分几个功能板块</em>，每个人负责一部分，同时开发，最后把每个人的代码进行合并<ul>
+<li>优点：每个命名空间之间还可以互相调用）<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//公共模块</span></div><div class="line"><span class="keyword">var</span> com=&#123;</div><div class="line">    <span class="attr">search</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//模块1</span></div><div class="line"><span class="keyword">var</span> model1=&#123;</div><div class="line">    <span class="attr">change</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">    com.search();<span class="comment">//在自己命名空间下调用其他命名空间的方法</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//模块2</span></div><div class="line"><span class="keyword">var</span> model2=&#123;</div><div class="line">    <span class="attr">change</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//model2.click();//在自己命名空间下调用自己命名空间的方法</span></div><div class="line">        <span class="keyword">this</span>.click();<span class="comment">//为防止model2改名字（this是谁等执行时被谁调用才知道）</span></div><div class="line">    &#125;</div><div class="line">    click:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">model2.change();<span class="comment">//此时this指的是model2;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="工厂模式（函数的封装）"><a href="#工厂模式（函数的封装）" class="headerlink" title="工厂模式（函数的封装）"></a>工厂模式（函数的封装）</h2><ul>
+<li>[x] 概念</li>
+<li>把实现同一事情的相同代码放到一个函数中，无需重复编写代码<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> obj=&#123;&#125;;</div><div class="line">    obj.age=age;</div><div class="line">    obj.write=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1=person(<span class="number">11</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>拓展<br>大多数的编程语言都是面向对象:<br><code>1</code>类的<strong>继承</strong><code>2</code><strong>封装</strong><code>3</code><strong>多态</strong><br><br><br><strong>封装</strong><code>作用：低耦合高内聚</code>：减少代码冗余，提高代码重复利用率<br><strong>继承</strong>：子类继承父类中的属性和方法；<br><strong>多态</strong>：当前方法的多种形态(后台中：重写和<code>重载</code>)</p>
+<p>&emsp; &emsp; <strong>重写</strong>：子类重写父类的方法（原型链继承时，子类通过_ <em>proto</em> _修改了父类，也影响其他子类）<br>&emsp; &emsp; <strong>重载</strong>：两个方法名同，但参数不同，执行操作也不同</p>
+<p><strong>js中没有重载</strong>，方法名一样的话，后面的会把前面的覆盖掉；<br><strong>js中有一个操作类似重载</strong>：可以根据传递参数的不同，实现不同功能<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> num===<span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> num;</div><div class="line">&#125;</div><div class="line">sum(<span class="number">100</span>);</div><div class="line">sum();</div><div class="line"></div><div class="line">                <span class="comment">//后台重载：方法名同，但参数不同，执行不同的函数</span></div><div class="line">                public <span class="keyword">void</span> sum(int num)&#123;&#125;;</div><div class="line">                public <span class="keyword">void</span> sum(string num)&#123;&#125;;</div><div class="line">                sum(<span class="number">1</span>);</div><div class="line">                sum(<span class="string">"1"</span>);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h2 id="构造函数模式（品牌（私有））"><a href="#构造函数模式（品牌（私有））" class="headerlink" title="构造函数模式（品牌（私有））"></a>构造函数模式（品牌（私有））</h2><ul>
+<li>[x] 目的：创建一个自定义类和类的实例<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构建函数类型</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">        <span class="comment">//浏览器默认创建的对象就是实例p1</span></div><div class="line">        <span class="keyword">this</span>.name = name;<span class="comment">//p1.name，this就是当前实例p1</span></div><div class="line">        <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            alert(<span class="keyword">this</span>.name);<span class="comment">//this是sayName()函数执行点前面的（不一定是当前实例）；</span></div><div class="line">            &#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"N"</span>);<span class="comment">//将Person变成类（无参数不用加（括号））</span></div><div class="line">    p1.sayName();</div><div class="line">    </div><div class="line"><span class="comment">//工厂模式</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> obj=&#123;&#125;;</div><div class="line">        obj.age=age;</div><div class="line">        obj.write=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> person1=person(<span class="number">11</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>拓展：<br>构造函数模式和工厂模式的区别？<br>1、执行时<br>&emsp; &emsp;普通函数执行-&gt;person();<br>&emsp; &emsp;构造函数执行-&gt;new Person();<br>&emsp; &emsp;&emsp; &emsp;new后Person就是一个类了<br>&emsp; &emsp;&emsp; &emsp;构造函数返回的是Person这个类的实例<br>2、函数代码执行时<br>&emsp;相同：都有普通函数的一面<br>&emsp;不同：<br>&emsp; &emsp;构造函数执行-&gt;不用手动创建对象;</p>
+</blockquote>
+<p><br></p>
+<h3 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h3><ul>
+<li>[x] 1、构造函数模式中，类中出现的this.xx=xx中的this是当前类的实例<br>实例1之间都是单独的个体：不同实例之间的方法this.sayName都是不同的</li>
+<li>[x] 2、构造函数执行时无参数不用加括号</li>
+<li><p>[x] 3、实例访问不到私有作用域下的私有变量</p>
+</li>
+<li><p>如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//构建函数类型</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> num=<span class="number">10</span>;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> person1 = <span class="keyword">new</span> Person;<span class="comment">//（无参数不用加（括号）</span></div><div class="line">    person1.num<span class="comment">//-&gt;undefined(var</span></div><div class="line">    num只是私有作用域下的私有变量，实例访问不到) </div><div class="line">    <span class="built_in">console</span>.log(f1);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] 4、构造函数默认返回一个对象数据类型<br>&emsp; &emsp;如果手动返回：基本数据类型（return 100；）—&gt;不起作用<br>&emsp; &emsp;如果手动返回：引用数据类型（return {num:10;}）—&gt;覆盖默认的，返回手动object类型</p>
+</li>
+<li><p>[x] 5、检测属性（解决了工厂模式的识别对象类型问题）</p>
+</li>
+</ul>
+<p>所有实例都是对象数据类型，而每个对象数据类型都是object这个内置类的一个实例</p>
+<ul>
+<li><p>[ ] instanceof : 检测实例什么类型</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> num=<span class="number">10</span>;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1=<span class="keyword">new</span> Person(); </div><div class="line"><span class="keyword">var</span> p2=<span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.log(p1 <span class="keyword">instanceof</span> Person);--&gt;<span class="literal">true</span></div><div class="line"><span class="built_in">console</span>.log(p1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);--&gt;<span class="literal">true</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] typeof 不能细分object下的对象、数组、正则、、</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[];</div><div class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] in : 既可以检测私有属性，也可以检测公有属性</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"sayName"</span> <span class="keyword">in</span> person1);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] hasOwnProperty : 检测私有属性</p>
+</li>
+<li><p>[ ] 检测公有属性：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasPubPro</span>(<span class="params">obj,attr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> (attr <span class="keyword">in</span> obj)&amp;&amp; obj.hasOwnProperty(attr)===<span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="原型模式（公有方法）"><a href="#原型模式（公有方法）" class="headerlink" title="原型模式（公有方法）"></a>原型模式（公有方法）</h2><p><strong>概念</strong>:</p>
+<ul>
+<li>[x] 解决方法属性公有的问题（原型.Prototype）</li>
+<li>[ ] 1、每个函数数据类型（普通函数、类）自带属性：<strong>Prototype</strong>（是一个对象数据类型的值）</li>
+<li>[ ] 2、浏览器给Prototype属性添加一个属性constructor（构造函数），属性值是<strong>当前函数（类）本身</strong></li>
+<li>[ ] 3、每个对象数据类型（普通的对象、实例、Prototype）天生自带一个属性：<em> </em> proto<em> </em>，属性值是<strong>当前实例所属类的原型（Prototype）</strong>；<br>图分析25：</li>
+<li><p>如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x=<span class="number">100</span>;</div><div class="line">&#125;</div><div class="line">Fn.Prototype.getX=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> f1=<span class="keyword">new</span> Fn;</div><div class="line"><span class="keyword">var</span> f2=<span class="keyword">new</span> Fn;</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x] Object是所有数据类型的基类</p>
+</li>
+</ul>
+<ul>
+<li>[ ] object–&gt;ture通过<em> </em> proto<em> </em>可以向上级查找，不管多少级，最后总能找到Object     </li>
+<li><p>[ ] Object.prototype无<em> </em> proto<em> </em>属性 </p>
+</li>
+<li><p>[x] 原型链模式<br>f1.hasOwnProperty(“x”);//表明-&gt;hasOwnProperty是f1的一个属性（但是f1并不存在该方法）</p>
+</li>
+<li>[ ] 通过 <strong>对象名.属性名</strong>的方式，在私有属性上查找，存在即获得私有属性</li>
+<li>[ ] 通过<em> </em> proto<em> </em>查找所属类的原型（公有的属性或方法==类的原型上定义的属性或方法）</li>
+<li>[ ] 通过原型上的<em> </em> proto<em> </em>继续查找（Object.prototype）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x=<span class="number">100</span>;</div><div class="line">&#125;</div><div class="line">Fn.Prototype.getX=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> f1=<span class="keyword">new</span> Fn;</div><div class="line"><span class="keyword">var</span> f2=<span class="keyword">new</span> Fn;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2016/06/22/1.2-对象模式（1-2）/" data-id="cj6wtgx37000b90vvb5m3awh8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/06/28/2.2-函数的三种角色（2-2）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          函数的三种角色（2-2）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/06/21/1.1-预解释以及其不规则使用(1-1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">预解释以及其不规则使用(1-1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

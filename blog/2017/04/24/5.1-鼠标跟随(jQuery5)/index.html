@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>鼠标跟随(jQuery5) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="item">
+<meta name="keywords" content="item">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鼠标跟随(jQuery5)">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/04/24/5.1-鼠标跟随(jQuery5)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="item">
+<meta property="og:updated_time" content="2017-09-12T09:58:25.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鼠标跟随(jQuery5)">
+<meta name="twitter:description" content="item">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-5.1-鼠标跟随(jQuery5)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/04/24/5.1-鼠标跟随(jQuery5)/" class="article-date">
+  <time datetime="2017-04-24T06:00:00.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      鼠标跟随(jQuery5)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>item<br><a id="more"></a></p>
+<p>显示效果图8，</p>
+<h2 id="小图片大图片布局"><a href="#小图片大图片布局" class="headerlink" title="小图片大图片布局"></a>小图片大图片布局</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box"</span> id=<span class="string">"box"</span>&gt;</div><div class="line">        &lt;img src="img/1.jpg" bigImg="img/1_bigger.jpg"&gt;</div><div class="line">        &lt;img src="img/2.jpg" bigImg="img/2_bigger.jpg"&gt;</div><div class="line">        &lt;img src="img/3.jpg" bigImg="img/3_bigger.jpg"&gt;</div><div class="line">        &lt;img src="img/4.jpg" bigImg="img/4_bigger.jpg"&gt;</div><div class="line">        &lt;!-- mark下的 --&gt;</div><div class="line">        &lt;div id="mark"&gt;</div><div class="line">            &lt;img src="img/1_bigger.jpg"&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="设置小图片与大图片样式"><a href="#设置小图片与大图片样式" class="headerlink" title="设置小图片与大图片样式"></a>设置小图片与大图片样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>,<span class="selector-tag">div</span>,<span class="selector-tag">img</span>&#123;</div><div class="line">       <span class="attribute">margin</span>:<span class="number">0px</span>;</div><div class="line">       <span class="attribute">padding</span>:<span class="number">0px</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="selector-class">.box</span> <span class="selector-tag">img</span>&#123;</div><div class="line">       <span class="attribute">display</span>:block;</div><div class="line">       <span class="attribute">border</span>:none;</div><div class="line">   &#125;</div><div class="line">   <span class="selector-class">.box</span>&#123;</div><div class="line">       <span class="attribute">position</span>:relative;</div><div class="line">       <span class="attribute">margin</span>:<span class="number">20px</span> auto;</div><div class="line">       <span class="attribute">width</span>:<span class="number">448px</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="selector-class">.box</span> <span class="selector-tag">img</span>&#123;</div><div class="line">       <span class="attribute">float</span>:left;</div><div class="line">       <span class="attribute">margin-left</span>: <span class="number">10px</span>;</div><div class="line">       <span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">       <span class="attribute">height</span>: <span class="number">75px</span>;</div><div class="line">       <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#008000</span>;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="selector-id">#mark</span>&#123;    </div><div class="line">       <span class="attribute">display</span>: none;   </div><div class="line">       <span class="attribute">position</span>: absolute;</div><div class="line">       <span class="attribute">top</span>:<span class="number">0</span></div><div class="line">       left:<span class="number">0</span>;</div><div class="line">       <span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">       <span class="attribute">width</span>:<span class="number">400px</span>;</div><div class="line">       <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">       <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#0077B0</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="comment">/*需清除.box img继承的属性*/</span></div><div class="line">   <span class="selector-id">#mark</span> <span class="selector-tag">img</span>&#123;        </div><div class="line">       <span class="attribute">float</span>:none;<span class="comment">/*默认值是inherit*/</span></div><div class="line">       <span class="attribute">margin-left</span>: <span class="number">0</span>;               </div><div class="line">       <span class="attribute">border</span>:none;</div><div class="line">       <span class="attribute">width</span>:<span class="number">100%</span>;<span class="comment">/*少个分号会出错*/</span></div><div class="line">       <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h2 id="jQuery步骤"><a href="#jQuery步骤" class="headerlink" title="jQuery步骤"></a>jQuery步骤</h2><p>显示计算大图片位置坐标图9</p>
+<ul>
+<li><p>[ ] 给小图绑定<strong>mouseover事件</strong></p>
+<p>  当事件触发，mark即<strong>show(秒数)</strong>出来</p>
+<p>  根据图9计算出大图<em>mark</em>出现的位置</p>
+<p>   根据<strong>事件源e.target</strong>获得当前触发事件的自定义属性<strong>bigImag</strong>来修改mark子元素img的src（实现切换不同图片的大图）</p>
+</li>
+<li><p>[ ] 继续给小图绑定<strong>mousemove事件</strong></p>
+<p>  随着鼠标移动修改（根据图9计算出）大图<em>mark</em>的位置（实现跟随鼠标移动）</p>
+</li>
+<li>[ ] 再继续给小图绑定<strong>mouseout事件</strong><br>隐藏mark<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 等价于$(document).ready()当页面上的HTML结构都加载完成再执行对应的函数</div><div class="line">       $(function()&#123;</div><div class="line">           var box=$(&quot;#box&quot;)</div><div class="line">           , mark=$(&quot;#mark&quot;)</div><div class="line">           , boxoffset=box.offset();</div><div class="line">           // console.log(boxoffset);</div><div class="line">          //取得子元素 $(&quot;#box&gt;img&quot;)</div><div class="line"></div><div class="line">          // box.children(&quot;img&quot;).bind(&quot;mouseover&quot;)</div><div class="line">          // box.children(&quot;img&quot;).on(&quot;mouseover&quot;)</div><div class="line">          box.children(&quot;img&quot;).mouseover(function(e)&#123;</div><div class="line">               e=e||window.event;</div><div class="line">               e.target=e.target||e.srcElement; //事件源</div><div class="line"></div><div class="line">               var left=e.clientX-boxoffset.left+10;</div><div class="line">               var top=e.clientY-boxoffset.top+10;</div><div class="line">               //hide/toggle/slideDown/slideUp/slideToggle/fadeIn/fadeOut/fadeToggle/animate</div><div class="line">               //jQuery中 stop()必须清除上一次动画</div><div class="line">               mark.stop().show(500).css(&#123;left:left,top:top&#125;).find(&quot;img&quot;).attr(&quot;src&quot;,e.target.getAttribute(&quot;bigImg&quot;));</div><div class="line">          &#125;).mousemove(function(e)&#123;</div><div class="line">               e=e||window.event;</div><div class="line">               var left=e.clientX-boxoffset.left+10;</div><div class="line">               var top=e.clientY-boxoffset.top+10;</div><div class="line">               mark.css(&#123;left:left,top:top&#125;);</div><div class="line">          &#125;).mouseout(function(e)&#123;</div><div class="line">               mark.stop().hide(500);</div><div class="line">          &#125;)</div><div class="line">       &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery-3.1.1.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">    <span class="selector-tag">body</span>,<span class="selector-tag">div</span>,<span class="selector-tag">img</span>&#123;</div><div class="line">        <span class="attribute">margin</span>:<span class="number">0px</span>;</div><div class="line">        <span class="attribute">padding</span>:<span class="number">0px</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.box</span> <span class="selector-tag">img</span>&#123;</div><div class="line">        <span class="attribute">display</span>:block;</div><div class="line">        <span class="attribute">border</span>:none;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.box</span>&#123;</div><div class="line">        <span class="attribute">position</span>:relative;</div><div class="line">        <span class="attribute">margin</span>:<span class="number">20px</span> auto;</div><div class="line">        <span class="attribute">width</span>:<span class="number">448px</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.box</span> <span class="selector-tag">img</span>&#123;</div><div class="line">        <span class="attribute">float</span>:left;</div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">10px</span>;</div><div class="line">        <span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">75px</span>;</div><div class="line">        <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#008000</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="selector-id">#mark</span>&#123;    </div><div class="line">        <span class="attribute">display</span>: none;   </div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line">        <span class="attribute">top</span>:<span class="number">0</span></div><div class="line">        left:<span class="number">0</span>;</div><div class="line">        <span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">        <span class="attribute">width</span>:<span class="number">400px</span>;</div><div class="line">        <span class="attribute">height</span>:<span class="number">300px</span>;</div><div class="line">        <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#0077B0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*需清除.box img继承的属性*/</span></div><div class="line">    <span class="selector-id">#mark</span> <span class="selector-tag">img</span>&#123;        </div><div class="line">        <span class="attribute">float</span>:none;<span class="comment">/*默认值是inherit*/</span></div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">0</span>;               </div><div class="line">        <span class="attribute">border</span>:none;</div><div class="line">        <span class="attribute">width</span>:<span class="number">100%</span>;<span class="comment">/*少个分号会出错*/</span></div><div class="line">        <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1.jpg"</span> <span class="attr">bigImg</span>=<span class="string">"img/1_bigger.jpg"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/2.jpg"</span> <span class="attr">bigImg</span>=<span class="string">"img/2_bigger.jpg"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/3.jpg"</span> <span class="attr">bigImg</span>=<span class="string">"img/3_bigger.jpg"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/4.jpg"</span> <span class="attr">bigImg</span>=<span class="string">"img/4_bigger.jpg"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- mark下的 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mark"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1_bigger.jpg"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="comment">// 等价于$(document).ready()当页面上的HTML结构都加载完成再执行对应的函数</span></div><div class="line">        $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> box=$(<span class="string">"#box"</span>)</div><div class="line">            , mark=$(<span class="string">"#mark"</span>)</div><div class="line">            , boxoffset=box.offset();</div><div class="line">            <span class="comment">// console.log(boxoffset);</span></div><div class="line">           <span class="comment">//取得子元素 $("#box&gt;img")</span></div><div class="line"></div><div class="line">           <span class="comment">// box.children("img").bind("mouseover")</span></div><div class="line">           <span class="comment">// box.children("img").on("mouseover")</span></div><div class="line">           box.children(<span class="string">"img"</span>).mouseover(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">                e=e||<span class="built_in">window</span>.event;</div><div class="line">                e.target=e.target||e.srcElement; <span class="comment">//事件源</span></div><div class="line"></div><div class="line">                <span class="keyword">var</span> left=e.clientX-boxoffset.left+<span class="number">10</span>;</div><div class="line">                <span class="keyword">var</span> top=e.clientY-boxoffset.top+<span class="number">10</span>;</div><div class="line">                <span class="comment">//hide/toggle/slideDown/slideUp/slideToggle/fadeIn/fadeOut/fadeToggle/animate</span></div><div class="line">                <span class="comment">//jQuery中 stop()必须清除上一次动画</span></div><div class="line">                mark.stop().show(<span class="number">500</span>).css(&#123;<span class="attr">left</span>:left,<span class="attr">top</span>:top&#125;).find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,e.target.getAttribute(<span class="string">"bigImg"</span>));</div><div class="line">           &#125;).mousemove(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">                e=e||<span class="built_in">window</span>.event;</div><div class="line">                <span class="keyword">var</span> left=e.clientX-boxoffset.left+<span class="number">10</span>;</div><div class="line">                <span class="keyword">var</span> top=e.clientY-boxoffset.top+<span class="number">10</span>;</div><div class="line">                mark.css(&#123;<span class="attr">left</span>:left,<span class="attr">top</span>:top&#125;);</div><div class="line">           &#125;).mouseout(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">                mark.stop().hide(<span class="number">500</span>);</div><div class="line">           &#125;)</div><div class="line">        &#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/04/24/5.1-鼠标跟随(jQuery5)/" data-id="cj6wtgx5c001x90vv2rmmxont" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/item/">item</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/04/25/5.1-鼠标跟随_放大镜（5-1）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          鼠标跟随_放大镜（5-1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/04/23/5.1-鼠标跟随（5-1）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">鼠标跟随（5-1）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSONP &amp; Jquery对它的调用(7-4) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JSONP">
+<meta name="keywords" content="JSONP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSONP &amp; Jquery对它的调用(7-4)">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/06/04/7.4-JSONP & Jquery对它的调用(7-4)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JSONP">
+<meta property="og:updated_time" content="2017-09-12T09:56:21.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSONP &amp; Jquery对它的调用(7-4)">
+<meta name="twitter:description" content="JSONP">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-7.4-JSONP &amp; Jquery对它的调用(7-4)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/06/04/7.4-JSONP & Jquery对它的调用(7-4)/" class="article-date">
+  <time datetime="2017-06-04T01:00:00.000Z" itemprop="datePublished">2017-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSONP &amp; Jquery对它的调用(7-4)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSONP<br><a id="more"></a></p>
+<p><code>？</code>jsonp数据请求当中，服务器返回给客户端的内容格式都有可能是什么格式的<br><code>答</code>:根据Jsonp的原理是服务端把数据和客户端传送的函数名拼接到一块返回给客户端，理论上什么格式都可以（普通字符串，json字符串），一般项目中返回<strong>json字符串</strong></p>
+<h1 id="JSONP与AJAX"><a href="#JSONP与AJAX" class="headerlink" title="JSONP与AJAX"></a>JSONP与AJAX</h1><ul>
+<li>[x] <strong>JSONP和AJAX相同</strong><ul>
+<li>[ ] 都是客户端—<code>发送请求</code>—&gt;服务器端<ul>
+<li>给服务器端<strong>交互</strong>数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[x] <strong>JSONP和AJAX区别</strong></p>
+<ul>
+<li>[ ] AJAX属于同源策略</li>
+<li><p>[ ] JSONP属于非同源策略(跨域请求) </p>
+<ul>
+<li><a href="http://blog.csdn.net/ligang2585116/article/details/73072868?locationNum=13&amp;fps=1" target="_blank" rel="external">跨域请求方式很多</a>，JSONP最常用</li>
+</ul>
+<blockquote>
+<p><strong>区分同源和非同源</strong>：<br>用当前页面的地址 &amp;&amp; 数据请求的接口地址</p>
+</blockquote>
+</li>
+<li>[x] 协议</li>
+<li>[x] 域名或者IP</li>
+<li>[x] 端口号</li>
+<li>三个相同为同源策略<code>--&gt;</code>AJAX获取;</li>
+<li>有一个不同为非同源<code>--&gt;</code>一般用JSONP获取;<br><br><br><code>例子</code></li>
+<li>当前页面的URL地址获取数据<br><code>http://localhost:63342/***/1.html</code><ul>
+<li>同源获取—-本地同一服务下的data.txt中内容<br>请求数据的地址 <code>http://localhost:63342/***/data.txt</code></li>
+<li>非同源获取—获取腾讯中的数据<br>请求数据的地址 <code>http://matchweb.sports.qq.com/**/calendar</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="JSONP的原理"><a href="#JSONP的原理" class="headerlink" title="JSONP的原理"></a>JSONP的原理</h1><ul>
+<li><p>[x]  条件：<strong>JSONP请求需要对方的服务器支持</strong></p>
+</li>
+<li><p>[x]  <strong>JSONP利用了SCRIPT原理</strong></p>
+<ul>
+<li>在<code>&lt;script&gt;</code>中，没有同源跨域这一说,只要给SRC地址合法，内容就能请求回来</li>
+</ul>
+</li>
+</ul>
+<p><strong>以本地请求本地创建的服务器中内容为例</strong></p>
+<ul>
+<li><p>[ ]  <code>1)</code> 首先把需请求的数据（跨域的API数据接口的地址）赋值给<code>SCRIPT的SRC</code></p>
+</li>
+<li><p>[ ]  <code>2)</code> 把当前页面中的某一个函数名当做参数值，传递给跨域的服务器(URL问号传参:<strong>?callback=fn</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost/Jsonpget?requestcall=requestFn&quot;&gt;&lt;/script&gt;&lt;!--拼接好后发送请求--&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]  <code>3)</code> 服务器接收到你的请求后，需要进行<strong>特殊的处理</strong>(把传递的函数名fn和它需要给你的数据<strong>拼接</strong>成一个字符串) </p>
+<ul>
+<li><code>例如</code> : 传递进去的函数名是fn，它准备好的数据是 <code>fn([{&quot;name&quot;:&quot;li&quot;}])</code> （以参数的方式传递给fn）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> //-&gt;JSONP的处理（服务端）</div><div class="line">if (pathname === &quot;/Jsonpget&quot;) &#123;</div><div class="line">    //-&gt;接收客户端传递进来的函数名(跟客户端script里问号传参的函数名要一致)</div><div class="line">    var fnName = query[&quot;requestcall&quot;];//?requestcall=requestFn解析这一句</div><div class="line"></div><div class="line">    //-&gt;准备数据</div><div class="line">    var con = fs.readFileSync(&quot;./custom.json&quot;, &quot;utf-8&quot;);//fn的参数，什么样的都可以，一般是json格式的字符串</div><div class="line">   </div><div class="line"></div><div class="line">    //-&gt;返回给客户端内容</div><div class="line">    res.writeHead(200, &#123;&apos;content-type&apos;: &apos;text/javascript;charset=utf-8;&apos;&#125;);</div><div class="line">    res.end(fnName + &apos;(&apos; + con + &apos;,a,b)&apos;);//a,b必须在请求数据的页面定义</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[ ]  <code>4)</code> 最后跨域的服务器把准备的数据通过HTTP协议返回给客户端，执行fn，并将数据传递给fn。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//客户端</div><div class="line">&lt;script charset=&quot;utf-8&quot; type=&quot;text/javascript&quot;&gt;</div><div class="line">    var a=10,b=20;</div><div class="line">    function requestFn(yourData) &#123;</div><div class="line">        console.log(arguments);</div><div class="line">        console.log(a+b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&lt;/script&gt;    </div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost/Jsonpget?requestcall=requestFn&quot;&gt;&lt;/script&gt;&lt;!-- /Jsonpget要与服务端API地址一致， ?requestcall=requestFn又客户端传递，服务端要保持一致--&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="jQuery调用Ajax和JSONP"><a href="#jQuery调用Ajax和JSONP" class="headerlink" title="jQuery调用Ajax和JSONP"></a>jQuery调用Ajax和JSONP</h1><ul>
+<li><p>引入jQuery和自制Ajax函数库</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script charset=<span class="string">"utf-8"</span> type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jquery-1.11.3.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">    &lt;script charset=<span class="string">"utf-8"</span> type=<span class="string">"text/javascript"</span> src=<span class="string">"js/ajax.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]   原生的AJAX</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> ajax(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">"data.txt"</span>,</div><div class="line">    <span class="attr">type</span>: <span class="string">"get"</span>,</div><div class="line">    <span class="attr">dataType</span>: <span class="string">"json"</span>,</div><div class="line">    <span class="attr">async</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">data</span>: <span class="literal">null</span>,</div><div class="line">    <span class="comment">// getHead: function() &#123;&#125;,</span></div><div class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]   Jquery的AJAX（需要自己搭建服务端）</p>
+<ul>
+<li><strong>dataType: “json”</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ajax(&#123;</div><div class="line">       <span class="attr">url</span>: <span class="string">"data.txt"</span>,</div><div class="line">       <span class="attr">type</span>: <span class="string">"get"</span>,</div><div class="line">       <span class="attr">dataType</span>: <span class="string">"json"</span>,</div><div class="line">       <span class="attr">data</span>: <span class="literal">null</span>,</div><div class="line">       <span class="attr">async</span>: <span class="literal">true</span>,</div><div class="line">       <span class="attr">timeout</span>: <span class="number">3000</span>, <span class="comment">//-&gt;设置超时时间 一般都设定3000ms</span></div><div class="line">       cache: <span class="literal">false</span>, <span class="comment">//-&gt;false(设定GET请求的时候不走缓存数据清除缓存原理其实就是在URL末尾加随机数,),默认是true</span></div><div class="line">       success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123; <span class="comment">//data是请求回来的数据</span></div><div class="line">           <span class="built_in">console</span>.log(data);</div><div class="line"></div><div class="line">       &#125;,</div><div class="line">       <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="string">"请求数据失败"</span>)</div><div class="line">       &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]   Jquery的JSONP</p>
+<ul>
+<li><strong>dataType: “jsonp”</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">"http://matchweb.sports.qq.com/kbs/calendar?columnId=100000"</span>,</div><div class="line">        <span class="comment">// type:"get",//JSONP都是GET不用写</span></div><div class="line">        dataType: <span class="string">"jsonp"</span>,</div><div class="line">        <span class="attr">jsonpCallback</span>: <span class="string">"fn"</span>, <span class="comment">//-&gt;不使用jQuery自动生成的，自定义传递给服务器的函数名fn</span></div><div class="line">        jsonp: <span class="string">"cb"</span>, <span class="comment">//-&gt;把传递函数名的那个默认形参callback变为cb</span></div><div class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//-&gt;请求的地址变为：http://matchweb.sports.qq.com/kbs/calendar?columnId=100000&amp;cb=fn&amp;_=1499436495312</span></div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/06/04/7.4-JSONP & Jquery对它的调用(7-4)/" data-id="cj6wtgx5x002i90vv6fvbmib9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/06/04/mode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/06/03/7.3-CRM客户管理系统(7-3)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CRM客户管理系统(7-3)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>本地存储(9-5) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本地存储">
+<meta name="keywords" content="html+css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地存储(9-5)">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/08/01/9.5-本地存储(9-5)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本地存储">
+<meta property="og:updated_time" content="2017-09-12T10:01:11.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地存储(9-5)">
+<meta name="twitter:description" content="本地存储">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.5-本地存储(9-5)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/08/01/9.5-本地存储(9-5)/" class="article-date">
+  <time datetime="2017-08-01T01:00:00.000Z" itemprop="datePublished">2017-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      本地存储(9-5)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本地存储<br><a id="more"></a></p>
+<p><strong>前情提要</strong></p>
+<ul>
+<li><p>[x]  在客户端JS不能操作用户电脑磁盘(保护客户端运行的安全)</p>
+</li>
+<li><p>[x]   编码解码<br>中文编码解码，防止传递存储过程中出现乱码</p>
+<ul>
+<li>escape() &amp; unescape()</li>
+<li>encodeURIComponent() decodeURIComponent()</li>
+<li>encodeURI() decodeURI()<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str= <span class="string">'我是很优秀的'</span>;</div><div class="line"><span class="keyword">var</span> n=<span class="built_in">escape</span>(str);<span class="comment">//编码</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> m=<span class="built_in">unescape</span>(n);<span class="comment">//解码</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]   本地存储都是<strong>明文存储</strong><br>  对于重要的信息一般不要存储到本地，非要存储需要加密</p>
+<ul>
+<li>可逆转加密:加密完成还可以解密回来</li>
+<li>不可逆转加密 : MD5（推荐）<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script charset=<span class="string">"UTF-8"</span> type=<span class="string">"text/javascript"</span> src=<span class="string">"js/md5.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"我是很优秀的"</span>;</div><div class="line">hex_md5(name);<span class="comment">//加密结果：2c8219c49e332a27a757162eeb1716c9</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="本地存储基本概念"><a href="#本地存储基本概念" class="headerlink" title="本地存储基本概念"></a>本地存储基本概念</h2><ul>
+<li><p>[x]   js本地存储<strong>概念</strong>:</p>
+<ul>
+<li>使用JS向浏览器的某个位置中存储的内容,<strong>浏览器关闭了，存储的信息不销毁</strong>,重新打开浏览器时依然可获取到上一次存储的信息</li>
+</ul>
+</li>
+<li><p>[x]   js本地存储的<strong>方案</strong>:</p>
+<ul>
+<li><p>[ ]   传统方案:</p>
+<ul>
+<li><strong><code>cookie</code></strong>:把信息存储到<strong>客户端</strong>的浏览器中(在浏览器和服务器间来回传递)</li>
+<li><strong>session</strong>:把信息存储到服务器上<strong>(服务器存储)</strong></li>
+</ul>
+<blockquote>
+<p>购物车存储：<br>存储3份：<br>cookie本地存储一份<br>session服务器存储一份<br>数据库存一份(防止前两份丢失)<br><code>哪位用户</code>    <code>在哪个IP上</code>   <code>买了什么东西</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- [ ]  HTML5方案: **webStorage**
+    - **`localStorage`**  :  **永久存储**到客户端的本地
+    -  **sessionStorage**  :  信息的**会话存储**，会话窗口关闭信息就消失
+</code></pre><hr>
+<h2 id="webStorage、cookie方法"><a href="#webStorage、cookie方法" class="headerlink" title="webStorage、cookie方法"></a>webStorage、cookie方法</h2><ul>
+<li><p>[x]  webStorage方法</p>
+<ul>
+<li><p><strong>setItem([key],[value])</strong> : 向客户端的本地存储一条记录;</p>
+<ul>
+<li>存储的<strong>[value]需是字符串格式</strong>的,如果编写的不是字符串,浏览器也会<strong>默认转化为字符串</strong>存储，但是如果是<strong>object类型需要通过<code>JSON.stringify({&quot;z&quot;: &quot;l&quot;})</code>转换</strong></li>
+<li>同源下存储的<strong>[key]不重复</strong>,如有的话,是把重修改信息值的;（同源：协议、域名、端口号都相同）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(&apos;age&apos;,7);  //7是字符串</div><div class="line">//对象格式的无法通过toString()默认转化为字符串格式，要通过下列方式</div><div class="line">localStorage.setItem(&apos;age&apos;, JSON.stringify(&#123;&quot;z&quot;: &quot;l&quot;&#125;));</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>getItem([key])</strong>:获取之前存储的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.getItem(<span class="string">'age'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>removeItem([key])</strong>  :移除KEY对应的存储记录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.removeItem(<span class="string">'age'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>clear()</strong> : 把当前源下所有的存储记录都移除掉</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.clear();</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>localStorage.length</strong>:获取存储的记录条数</p>
+</li>
+<li><strong>localStorage.key(0)</strong>:获取索引为0这一项的KEY是什么</li>
+</ul>
+</li>
+</ul>
+<p><strong>localStorage和sessionStorage方法用法一样</strong></p>
+<ul>
+<li><p>[x]  cookie方法</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"age=7"</span>;</div><div class="line"><span class="built_in">document</span>.cookie;<span class="comment">//"age=7"</span></div></pre></td></tr></table></figure>
+<p>  <strong>方法参考自制库cookie.js</strong></p>
+<ul>
+<li>setValue</li>
+<li>getValue</li>
+<li><p>removeValue</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script charset=<span class="string">"utf-8"</span> type=<span class="string">"text/javascript"</span> src=<span class="string">"js/cookie.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line">cookieRender.set(&#123;</div><div class="line">           <span class="attr">name</span>: <span class="string">'age'</span>,</div><div class="line">           <span class="attr">value</span>: <span class="number">7</span></div><div class="line">       &#125;);</div><div class="line">cookieRender.get(<span class="string">'age'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="区别cookie-localStorage-sessionStorage"><a href="#区别cookie-localStorage-sessionStorage" class="headerlink" title="区别cookie  localStorage  sessionStorage"></a>区别<code>cookie</code>  <code>localStorage</code>  <code>sessionStorage</code></h2><ul>
+<li>[x]   <strong><code>localStorage</code>和<code>sessionStorage</code>的区别</strong>:<ul>
+<li>[ ]   localStorage属于<strong>永久存储到本地</strong>,只有自己手动的去删除才会消失</li>
+<li>[ ]   sessionStorage属于临时的<strong>会话存储</strong>,页面关闭,存储信息就清除(F5只是把当前的DOM结构等进行重新的渲染,会话并没有关闭)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>[x]   <strong><code>cookie</code> 和 <code>localStorage</code>的区别:</strong><ul>
+<li>[ ]   <strong>兼容</strong>：</li>
+<li>cookie <strong>兼容</strong>所有的浏览器,</li>
+<li>localStorage <strong>不兼容IE6~8</strong></li>
+<li>[ ]   <strong>大小</strong>：<ul>
+<li>cookie一般同源下只能存储<strong>4KB</strong>的内容;</li>
+<li>localStorage一般同源下只能存储<strong>5MB</strong>;</li>
+</ul>
+</li>
+<li>[ ]   时间：<ul>
+<li>cookie有过期时间的</li>
+<li>localStorage永久存储</li>
+</ul>
+</li>
+<li>[ ]   禁用：<ul>
+<li>用户可能出于安全的角度禁用cookie(无痕浏览器)，</li>
+<li>不能禁止localStorage。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="本地存储的使用"><a href="#本地存储的使用" class="headerlink" title="本地存储的使用?"></a>本地存储的使用?</h2><ul>
+<li><p>[x]   cookie:</p>
+<ul>
+<li><strong>存储少量信息或者是需要浏览器兼容的都需要使用cookie来进行存储</strong></li>
+<li>[ ]   记住用户名密码；</li>
+<li>[ ]   用户的部分信息（当用户登录成功会把用户的一些信息记录到本地cookie中,任何页面都可知道当前登录的用户是谁）；</li>
+<li>[ ]   购物车…（需要兼容）</li>
+</ul>
+</li>
+<li><p>[x]    localStorage:<strong>优化手段</strong><br>  在PC端可用其存储 </p>
+</li>
+<li>[ ]   某一个JS或者CSS中的源代码；（页面样式一般不变）</li>
+<li>[ ]   把一些不需常更新的数据存储到本地，可设置存储的时间，重新刷新页面超过了设置时间则从新获取没超过使用本地数据；</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/08/01/9.5-本地存储(9-5)/" data-id="cj6wtgx75004c90vv9l2438la" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html-css/">html+css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/08/29/2.1-数据绑定及DOM回流(2-1)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/07/26/9.5-IScroll(局部滚动)（9-5）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">IScroll(局部滚动)（9-5）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

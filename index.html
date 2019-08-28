@@ -1,0 +1,561 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>resume</title>
+    <!--   本地 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="resume/css/bootstrap.min.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resume/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="resume/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="resume/css/index.css">
+</head>
+<style type="text/css">
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent
+}
+
+a:hover,
+a:active {
+    outline-width: 0;
+    text-decoration: none;
+}
+
+body {
+    background-color: #D9D9D9;
+    font-family: LiSu, "宋体", Monospace, "华文彩云", YouYuan;
+}
+#heading{
+	font-size: 	50px;
+}
+</style>
+
+<body onload="load()">
+    <!-- loading-->
+<!--     <div id="loading">
+        <div id="loading-line">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div> -->
+    <!--  End loading -->
+    <section id="container">
+        <!-- header -->
+        <header class="header">
+            <div class="h-con">
+                <h1 class="h-con-logo">lyzh</h1>
+                <span class="h-con-menu"></span>
+                <ul class="h-con-nav">
+                    <li><a href="#main-aboutme">关于我</a></li>
+                    <li><a href="#section1">学历</a></li>
+                    <li><a href="#section2">技能</a></li>
+                    <li><a href="#section3">作品</a></li>
+                    <li><a href="#footer">联系我</a></li>
+                </ul>
+            </div>
+            <nav class="h-nav">
+                <a href="#main-aboutme">关于我</a>
+                <a href="#section1">学历</a>
+                <a href="#section2">技能</a>
+                <a href="#section3">作品</a>
+                <a href="#footer">联系我</a>
+            </nav>
+        </header>
+        <!-- gotTop -->
+        <div id="goTop"></div>
+        <!-- 关于我 -->
+        <section id="main-aboutme">
+            <!-- 轮播图片 -->
+            <div id="main-aboutme-banner" class="banner">
+                <div class="bannerInner">
+                    <div><img trueSrc="resume/images/banner/banner1.jpg" /></div>
+                    <div><img trueSrc="resume/images/banner/banner2.jpg" /></div>
+                    <div><img trueSrc="resume/images/banner/banner3.jpg" /></div>
+                    <div><img trueSrc="resume/images/banner/banner4.jpg" /></div>
+                </div>
+            </div>
+            <div id="main-layer"></div>
+            <div id="main-aboutme-info">
+                <div class="main-aboutme-text">
+                    <h1 id="heading">
+                    你好，<br> 
+                    我是张利英,<br> 
+                    一个皮实的产品汪<br> 
+                    </h1> 	
+                    <h2>15501091203 | kuaileyuying@foxmail.com | 北京</h2>
+                   
+
+                </div>
+                <img class="main-aboutme-pho" class=" img-circle" src="resume/images/aboutme.jpg" alt="myphoto">
+            </div>
+        </section>
+        <!-- 分页 -->
+        <section id="main-container">
+            <section class="section" id="section1">
+                <h3 class="sectionTitle">学 历</h3>
+                <div class="info">
+                    <ul class="infoList">
+                        <li class="infoItem">
+                            <div class="infoImg">
+                                <img src="resume/images/main/age.png">
+                            </div>
+                            <div class="infoText">
+                                年龄：28岁
+                            </div>
+                        </li>
+                        <li class="infoItem">
+                            <div class="infoImg">
+                                <img src="resume/images/main/education.png">
+                            </div>
+                            <div class="infoText">
+                                学历：硕士
+                            </div>
+                        </li>
+                        <li class="infoItem">
+                            <div class="infoImg">
+                                <img src="resume/images/main/desire.png">
+                            </div>
+                            <div class="infoText">
+                                意愿：产品经理
+                            </div>
+                        </li>
+                        <li class="infoItem">
+                            <div class="infoImg">
+                                <img src="resume/images/main/address.png">
+                            </div>
+                            <div class="infoText">
+                                求职地点：北京
+                            </div>
+                        </li>
+                        <li class="infoItem">
+                            <div class="infoImg">
+                                <img src="resume/images/main/experience.png">
+                            </div>
+                            <div class="infoText">
+                                状态：工龄2年，在职可一个月内到岗
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sectionDep1">
+                    <ul>
+                        <li>2年产品设计经验，对互联网有着浓厚的兴趣</li>
+                        <li>良好的逻辑思维能力、表达能力、分析问题和解决问题能力、快速学习能力</li>
+                        <li>以结果为导向，工作认真，极具责任心</li>
+                        <li>性格坚毅抗压力强，曾徒步30公里</li>
+                        <li>爱好旅游、摄影、音乐、手工DIY、画漫画</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section" id="section2">
+                <h3 class="sectionTitle">技 能</h3>
+                <div class="skill" id="skill">
+                    <div class="skillCenter"></div>
+                    <div class="x_rot" style="animation: x10 10s linear infinite;">
+                        <div class="y_rot" style="animation: y0 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y0- 15s linear infinite;">
+                                HTML/CSS/js
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_rot" style="animation: x20 5s linear infinite;">
+                        <div class="y_rot" style="animation: y60 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y60- 15s linear infinite;">
+                               axure/visio/PS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_rot" style="animation: x30 5s linear infinite;">
+                        <div class="y_rot" style="animation: y120 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y120- 15s linear infinite;">
+                                需求调研
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_rot" style="animation: x10 10s linear infinite;">
+                        <div class="y_rot" style="animation: y180 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y180- 15s linear infinite;">
+                                撰写方案
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_rot" style="animation: x20 5s linear infinite;">
+                        <div class="y_rot" style="animation: y240 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y240- 15s linear infinite;">
+                                数据可视化
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_rot" style="animation: x30 10s linear infinite;">
+                        <div class="y_rot" style="animation: y300 15s linear infinite;">
+                            <div class="y_rot_c" style="animation: y300- 15s linear infinite;">
+                                交互设计
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sectionDep2">
+                    <ul>
+                   		<li>熟练使用Axure、墨刀、Visio、XMind、PS、office、powerBI、码云、jira等工具</li>
+                        <li>擅长需求调研、需求分析、产品规划与设计、界面视觉及交互设计；</li>
+                        <li>良好的写作能力，善于撰写产品方案、竞品分析报告、PRD等文档</li>
+                        <li>良好的数据分析、数据可视化能力，善于通过数据发现问题</li>
+                        <li>熟练使用Html、CSS、JS、 jQuery、bootstrap等前端技术，了解node.js、Mysql基础等</li>
+                        <li>通过英语六级(CET-6)、 英语四级(CET-4)、全国计算机二级等级考试</li>
+                    </ul>
+                </div>                   
+            </section>
+         	<!-- <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" background-color="white">
+				<g stroke="#979797" fill="none">
+					<path d="M212 453l-81-88m81 88l47-88-77-55" />
+					<path d="M272 310l-13 55m-47 88l85 83-25 83m25-83l87 63m73-146l-160 83m160-83l91 103 106 58m-106-58l-57 83" />
+					<path d="M548 556l182-103M548 556l-9 161m9-161l933 183 65-195m-998 12l46 112M297 536l58 124m-58-124l-3 233m3-233l-217-2m217 2L64 599l-42 38" />
+					<path d="M297 536L50 683m247-147l40 181" />
+					<path d="M297 536l151 234M297 536L37 759m260-223L175 249" />
+					<path d="M175 249l84 116m-129 0l45-116m283.5 204L376 362m-.5-2l42-51M374 361l-12-92m96.5 184L621 367l17-61" />
+					<path d="M457 453l85-144" />
+					<path d="M457 453l79-198m194 198l62-79-15-120m16 120l107-68m-44-110l-63 177m0 0l-53 200m321-120l47-94" />
+					<path d="M1061 453l-48 103M730 453l283 103m48-103l98 115m-98-115v156" />
+					<path d="M1061 453l66 302m-66-302L925 602l-72-68-60-160" />
+					<path d="M1061 453L746 692 297 536m764-83l-29 226m29-226l-70 317m70-317l18-151m151 151l89 113 52 63-76 60-108-62-28-59zm330 0l-14 91-78 47m78-47l48 53m-48-53l-19 114" />
+					<path d="M1546 544l86 148m-72-239l66-111 20-91m-86 202l-66-89 29-79m-29 79l-80-122m-353 211L900 676m-154 16l103 55m-226 0l85 43m-85-43h226M297 536L193 710" />
+					<path d="M297 536l-95 121m1557-204l-34 87 99 38.5z" />
+					<path d="M1824 579l-54 71-11-197" />
+					<path d="M1061 453l709 197M297 536l326 211" />
+				</g>
+				<g fill="#404040">
+					<text><tspan x="226" y="459">网站前端</tspan></text>
+					<circle cx="212" cy="453" r="4" />
+					<text><tspan x="744" y="459">人工智能</tspan></text>
+					<circle cx="730" cy="453" r="4" />
+					<text><tspan x="1075" y="459">iOS</tspan></text>
+					<circle cx="1061" cy="453" r="4" />
+					<text><tspan x="471" y="459">服务器</tspan></text>
+					<circle cx="457" cy="453" r="4" />
+					<text><tspan x="1772" y="459">AR/VR</tspan></text>
+					<circle cx="1758" cy="453" r="4" />
+					<text><tspan x="1244" y="459">物联网</tspan></text>
+					<circle cx="1230" cy="453" r="4" />
+					<text><tspan x="1574" y="459">数据库</tspan></text>
+					<circle cx="1560" cy="453" r="4" />
+					<text><tspan x="1027" y="562">Swift</tspan></text>
+					<circle cx="1013" cy="556" r="4" />
+					<text><tspan x="1122" y="365">Objective-C</tspan></text>
+					<circle cx="1108" cy="359" r="4" />
+					<text><tspan x="311" y="542">JavaScript</tspan></text>
+					<circle cx="297" cy="536" r="4" />
+					<text><tspan x="273" y="371">CSS</tspan></text>
+					<circle cx="259" cy="365" r="4" />
+					<text><tspan x="144" y="370">HTML</tspan></text>
+					<circle cx="130" cy="364" r="4" />
+					<text><tspan x="562" y="562">Python</tspan></text>
+					<circle cx="548" cy="556" r="4" />
+					<text><tspan x="1333" y="572">C++</tspan></text>
+					<circle cx="1319" cy="566" r="4" />
+					<text><tspan x="635" y="373">PHP</tspan></text>
+					<circle cx="621" cy="367" r="4" />
+					<text><tspan x="430" y="316">Docker</tspan></text>
+					<circle cx="416" cy="310" r="4" />
+					<text><tspan x="376" y="271">Kubernetes</tspan></text>
+					<circle cx="362" cy="265" r="4" />
+					<text><tspan x="556" y="315">Nginx</tspan></text>
+					<circle cx="542" cy="309" r="4" />
+					<text><tspan x="550" y="261">Apache</tspan></text>
+					<circle cx="536" cy="255" r="4" />
+					<text><tspan x="668" y="620">Flask</tspan></text>
+					<circle cx="654" cy="614" r="4" />
+					<text><tspan x="607" y="674">Django</tspan></text>
+					<circle cx="593" cy="668" r="4" />
+					<text><tspan x="807" y="379">机器学习</tspan></text>
+					<circle cx="793" cy="373" r="4" />
+					<text><tspan x="754" y="579">Turi Create</tspan></text>
+					<circle cx="740" cy="573" r="4" />
+					<text><tspan x="867" y="540">Create ML</tspan></text>
+					<circle cx="853" cy="534" r="4" />
+					<text><tspan x="1508" y="370">缓存策略</tspan></text>
+					<circle cx="1494" cy="364" r="4" />
+					<text><tspan x="791" y="260">图像分类</tspan></text>
+					<circle cx="777" cy="254" r="4" />
+					<text><tspan x="870" y="202">图像识别</tspan></text>
+					<circle cx="856" cy="196" r="4" />
+					<text><tspan x="914" y="312">TensorFlow</tspan></text>
+					<circle cx="900" cy="306" r="4" />
+					<text><tspan x="505" y="645">PIL</tspan></text>
+					<circle cx="491" cy="639" r="4" />
+					<text><tspan x="652" y="311">WordPress</tspan></text>
+					<circle cx="638" cy="305" r="4" />
+					<text><tspan x="1173" y="574">HomeKit</tspan></text>
+					<circle cx="1159" cy="568" r="4" />
+					<text><tspan x="939" y="608">MLKit</tspan></text>
+					<circle cx="925" cy="602" r="4" />
+					<text><tspan x="1075" y="615">UIKit</tspan></text>
+					<circle cx="1061" cy="609" r="4" />
+					<text><tspan x="760" y="698">Mapbox</tspan></text>
+					<circle cx="746" cy="692" r="4" />
+					<text><tspan x="1495" y="745">SQLAlchemy</tspan></text>
+					<circle cx="1481" cy="739" r="4" />
+					<text><tspan x="286" y="625">Vue.js</tspan></text>
+					<circle cx="272" cy="619" r="4" />
+					<text><tspan x="216" y="663">D3.js</tspan></text>
+					<circle cx="202" cy="657" r="4" />
+					<text><tspan x="196" y="316">SCSS</tspan></text>
+					<circle cx="182" cy="310" r="4" />
+					<text><tspan x="286" y="314">LESS</tspan></text>
+					<circle cx="272" cy="308" r="4" />
+					<text><tspan x="189" y="255">Bootstrap</tspan></text>
+					<circle cx="175" cy="249" r="4" />
+					<text><tspan x="398" y="605">NodeJS</tspan></text>
+					<circle cx="384" cy="599" r="4" />
+					<text><tspan x="308" y="775">NPM</tspan></text>
+					<circle cx="294" cy="769" r="4" />
+					<text><tspan x="462" y="776">Yarn</tspan></text>
+					<circle cx="448" cy="770" r="4" />
+					<text><tspan x="553" y="723">PIP</tspan></text>
+					<circle cx="539" cy="717" r="4" />
+					<text><tspan x="1141" y="761">CocoaPods</tspan></text>
+					<circle cx="1127" cy="755" r="4" />
+					<text><tspan x="207" y="716">Electron</tspan></text>
+					<circle cx="193" cy="710" r="4" />
+					<text><tspan x="64" y="689">jQuery</tspan></text>
+					<circle cx="50" cy="683" r="4" />
+					<text><tspan x="78" y="605">Webpack</tspan></text>
+					<circle cx="64" cy="599" r="4" />
+					<text><tspan x="36" y="643">Babel</tspan></text>
+					<circle cx="22" cy="637" r="4" />
+					<text><tspan x="47" y="393">SVG</tspan></text>
+					<circle cx="33" cy="387" r="4" />
+					<text><tspan x="94" y="540">WebGL</tspan></text>
+					<circle cx="80" cy="534" r="4" />
+					<text><tspan x="1385" y="635">Arduino</tspan></text>
+					<circle cx="1371" cy="629" r="4" />
+					<text><tspan x="1201" y="635">树莓派</tspan></text>
+					<circle cx="1187" cy="629" r="4" />
+					<text><tspan x="1309" y="698">HomeAssistant</tspan></text>
+					<circle cx="1295" cy="692" r="4" />
+					<text><tspan x="1784" y="656">ARKit</tspan></text>
+					<circle cx="1770" cy="650" r="4" />
+					<text><tspan x="1740" y="546">C#</tspan></text>
+					<circle cx="1726" cy="540" r="4" />
+					<text><tspan x="1838" y="585">Unity</tspan></text>
+					<circle cx="1824" cy="579" r="4" />
+					<text><tspan x="1640" y="348">NoSQL</tspan></text>
+					<circle cx="1626" cy="342" r="4" />
+					<text><tspan x="1659" y="258">MongoDB</tspan></text>
+					<circle cx="1645" cy="252" r="4" />
+					<text><tspan x="1646" y="698">Access</tspan></text>
+					<circle cx="1632" cy="692" r="4" />
+					<text><tspan x="1560" y="550">关系型数据库</tspan></text>
+					<circle cx="1546" cy="544" r="4" />
+					<text><tspan x="1482" y="597">MySQL</tspan></text>
+					<circle cx="1468" cy="591" r="4" />
+					<text><tspan x="1608" y="603">PostgreSQL</tspan></text>
+					<circle cx="1594" cy="597" r="4" />
+					<text><tspan x="1541" y="664">SQLite</tspan></text>
+					<circle cx="1527" cy="658" r="4" />
+					<text><tspan x="1537" y="291">Redis</tspan></text>
+					<circle cx="1523" cy="285" r="4" />
+					<text><tspan x="1428" y="248">Memcached</tspan></text>
+					<circle cx="1414" cy="242" r="4" />
+					<text><tspan x="914" y="682">MapKit</tspan></text>
+					<circle cx="900" cy="676" r="4" />
+					<text><tspan x="1046" y="685">CoreAnimation</tspan></text>
+					<circle cx="1032" cy="679" r="4" />
+					<text><tspan x="1093" y="308">CoreData</tspan></text>
+					<circle cx="1079" cy="302" r="4" />
+					<text><tspan x="1005" y="776">CloudKit</tspan></text>
+					<circle cx="991" cy="770" r="4" />
+					<text><tspan x="476" y="218">Linux</tspan></text>
+					<circle cx="462" cy="212" r="4" />
+					<text><tspan x="64" y="280">XML</tspan></text>
+					<circle cx="50" cy="274" r="4" />
+					<text><tspan x="68" y="338">GSAP</tspan></text>
+					<circle cx="54" cy="332" r="4" />
+					<text><tspan x="1357" y="785">YAML</tspan></text>
+					<circle cx="1343" cy="779" r="4" />
+					<text><tspan x="1113" y="242">Git</tspan></text>
+					<circle cx="1099" cy="236" r="4" />
+					<text><tspan x="1226" y="292">AppleScript</tspan></text>
+					<circle cx="1212" cy="286" r="4" />
+					<text><tspan x="1363" y="177">Microservices</tspan></text>
+					<circle cx="1349" cy="171" r="4" />
+					<text><tspan x="1226" y="218">Serverless</tspan></text>
+					<circle cx="1212" cy="212" r="4" />
+					<text><tspan x="1323" y="365">Shell Script</tspan></text>
+					<circle cx="1309" cy="359" r="4" />
+					<text><tspan x="722" y="796">TopoJSON</tspan></text>
+					<circle cx="708" cy="790" r="4" />
+					<text><tspan x="863" y="753">GeoJSON</tspan></text>
+					<circle cx="849" cy="747" r="4" />
+					<text><tspan x="637" y="753">JSON</tspan></text>
+					<circle cx="623" cy="747" r="4" />
+					<text><tspan x="1711" y="766">Visual Basic</tspan></text>
+					<circle cx="1697" cy="760" r="4" />
+					<text><tspan x="51" y="765">微信小程序</tspan></text>
+					<circle cx="37" cy="759" r="4" />
+					<text><tspan x="369" y="666">React</tspan></text>
+					<circle cx="355" cy="660" r="4" />
+					<text><tspan x="351" y="723">TypeScript</tspan></text>
+					<circle cx="337" cy="717" r="4" />
+					<text><tspan x="388" y="367">容器化</tspan></text>
+					<circle cx="374" cy="361" r="4" />
+				</g>
+			</svg> -->
+		
+            <section class="section" id="section3">
+                <h3 class="sectionTitle">PM 作 品</h3>
+                <ul class="works">
+                	<li class="work work1">
+                        <img src="resume/images/main/work31.jpg">
+                        <a class="aLayer" href="https://gxl5dl.axshare.com/#c=2">
+                            <div class="textLayer">
+                                <h3>原型</h3>
+                                <p>餐餐查移动端原型</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work2">
+                        <img src="resume/images/main/pc.png">
+                        <a class="aLayer" href="https://nllztx.axshare.com/#c=2">
+                            <div class="textLayer">
+                                <h3>原型</h3>
+                                <p>监管首页原型</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work3">
+                        <img src="resume/images/main/work31.jpg">
+                        <a class="aLayer" href="https://kxzb3v.axshare.com/#c=2">
+                            <div class="textLayer">
+                                <h3>原型</h3>
+                                <p>餐餐查移动端原型</p>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <li class="work work5">
+                        <img src="resume/images/main/work31.jpg">
+                        <a class="aLayer" href="https://a0ji79.axshare.com/#c=2">
+                            <div class="textLayer">
+                                <h3>原型</h3>
+                                <p>优选链移动端原型（新）</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work6">
+                        <img src="resume/images/main/work31.jpg">
+                        <a class="aLayer" href="https://irbk19.axshare.com/">
+                            <div class="textLayer">
+                                <h3>优选链移动端原型</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </li>               
+                </ul>
+            </section>
+            <section class="section" id="section4">
+                <h3 class="sectionTitle">产品</h3>
+                <ul class="works"> 
+                	<li class="work work4">
+                        <img src="resume/images/main/pc.png">
+                        <a class="aLayer" href="http://www.youxuanlian.cn/">
+                            <div class="textLayer">
+                                <h3>餐餐查PC端</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </li>
+                            	
+                    <li class="work work1">
+                        <img src="resume/images/main/work41.jpg">
+                        <a class="aLayer" href="http://lyzh.tk/items/huarong/">
+                            <div class="textLayer">
+                                <h3>电子商城首页</h3>
+                                <p>响应式网页</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work2">
+                        <img src="resume/images/main/work42.jpg">
+                        <a class="aLayer" href="http://lyzh.tk/items/five_chess/">
+                            <div class="textLayer">
+                                <h3>网页版五子棋</h3>
+                                <p>canvas</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work3">
+                        <img src="resume/images/main/work43.jpg">
+                        <a class="aLayer" href="http://lyzh.tk/items/waterfalls/">
+                            <div class="textLayer">
+                                <h3>瀑布流</h3>
+                                <p>响应式网页</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="work work4">
+                        <img src="resume/images/main/work44.jpg">
+                        <a class="aLayer" href="http://lyzh.tk/items/magnifier2.5/">
+                            <div class="textLayer">
+                                <h3>放大镜</h3>
+                                <p>商城demo</p>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </section>
+
+        </section>
+        <section id="footer">
+            <div class="footer col-md-12">
+                <!--菜单特效 -->
+                <div class="footer_navbar h1">联系我
+                    <ul class="footer_menu">
+                        <li>
+                            <a href="https://github.com/lyzh" class="fa fa-github"></a>
+                        </li>
+                        <li>
+                            <a href="http://lyzh.tk/blog/" class="fa fa-bold"></a>
+                        </li>
+                        <li>
+                            <a href="https://mail.qq.com/" class="fa fa-envelope"></a>
+                        </li>
+                        <li>
+                            <a href="http://weibo.com/u/6354492240/home?topnav=1&wvr=6" class="fa fa-weibo"></a>
+                        </li>
+                       
+                        <li>
+                            <a href="#" class="fa fa-weixin"></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="resume/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="resume/js/banner.js" type="text/javascript"></script>
+    <script src="resume/js/swiper.min.js" type="text/javascript"></script>
+    <script src="resume/js/index.js" type="text/javascript"></script>
+</body>
+
+</html>

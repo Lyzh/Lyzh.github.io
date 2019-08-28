@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>产品   流式布局     rem布局 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="移动端">
+<meta name="keywords" content="html+css 移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品   流式布局     rem布局">
+<meta property="og:url" content="http://lyzh.tk/blog/2017/07/18/9.3-产品   流式布局     rem布局/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="移动端">
+<meta property="og:updated_time" content="2017-09-12T10:00:25.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="产品   流式布局     rem布局">
+<meta name="twitter:description" content="移动端">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-9.3-产品   流式布局     rem布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/07/18/9.3-产品   流式布局     rem布局/" class="article-date">
+  <time datetime="2017-07-18T07:00:00.000Z" itemprop="datePublished">2017-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      产品   流式布局     rem布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端<br><a id="more"></a></p>
+<h1 id="移动端概括"><a href="#移动端概括" class="headerlink" title="移动端概括"></a>移动端概括</h1><ul>
+<li>移动端、H5、响应式布局、webApp、场景应用、微信二次开发…</li>
+</ul>
+<p>移动端 : 运行在手机、平板、I TOUCH…上的产品</p>
+<h2 id="产品"><a href="#产品" class="headerlink" title="产品:"></a>产品:</h2><ul>
+<li>[x]  APP:<br>手机应用,大部分都是原生APP开发者做的 <ul>
+<li>[ ]  IOS : Object-C </li>
+<li>[ ]  安卓 : java-native<br>市场趋于用JS来开发原生的APP:(框架)React Native、phoneGap…<br><strong>优点</strong>：流畅、本机系统直接操作…<br><strong>缺点</strong>：不跨平台、需升级、ios审核…</li>
+</ul>
+</li>
+<li><p>[x]  <strong>H5（移动端、响应式、webApp、场景应用、微信二次开发）:</strong></p>
+<ul>
+<li>在IOS和安卓平台上的浏览器大部分都是webkit内核的,所以移动端H5不用处理兼容</li>
+<li>[ ]  PC端浏览器[谷歌、火狐、safari、欧朋、IE、360、搜狗…]</li>
+<li><p>[ ]  移动端的浏览器[内置的、UC、QQ、百度、谷歌、safari…]</p>
+<p><strong>优缺点</strong>：与APP相反</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="前端主要工作："><a href="#前端主要工作：" class="headerlink" title="前端主要工作："></a>前端主要工作：</h2><ul>
+<li><p>[x]  PC和移动端<strong>共用</strong>：</p>
+<ul>
+<li>（结构简单）比如：猎豹、华为…(响应式)<blockquote>
+<ul>
+<li>一般采用<strong>流式布局法</strong><br>先做pc端再针对不同移动设备微调</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>[x]  PC端和移动端<strong>不同</strong> 如：京东、淘宝、QQ…</p>
+<ul>
+<li>PC端的项目不需要做响应式</li>
+<li><p>移动端的项目需要做响应式</p>
+<blockquote>
+<ul>
+<li>只做移动端一般用<strong>REM响应式布局</strong></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="H5运行的环境"><a href="#H5运行的环境" class="headerlink" title="H5运行的环境:"></a>H5运行的环境:</h2><ul>
+<li><p>[x]  移动端的浏览器 : UC、QQ、百度…</p>
+</li>
+<li><p>[x]  原生APP(Native App)的<strong>webView</strong>中:<strong>hyBrid</strong>模拟  例如：在微信中打开一个H5页面，是运行在微信的webView中的（微信现用内嵌Q浏览器运行微信中页面）</p>
+</li>
+</ul>
+<blockquote>
+<p>扩展<br><strong>hyBrid模式</strong>概念：把H5页面嵌入到Native APP的webView中运行(类似浏览器，也是webkit内核的)<br><a href="http://old.zhufengpeixun.cn/qianduanjishuziliao/mobileDevelopment/2016-07-15/511.html" target="_blank" rel="external">hyBrid模式参考</a></p>
+</blockquote>
+<p>图42</p>
+<h3 id="hyBrid模式"><a href="#hyBrid模式" class="headerlink" title="hyBrid模式"></a>hyBrid模式</h3><ul>
+<li><p>[x]  多View混合型(目前常用的)  </p>
+<ul>
+<li><p>[ ]   jsBridge(微信平台的JS SDK就是基于这个开发的)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 首先引入微信提供好的一个JS：(App把JS中提供的方法注入到了web view中， 引入JS可调用App的方法)</span></div><div class="line">http: <span class="regexp">/ /</span>res.wx.qq.com / open / js / jweixin - <span class="number">1.0</span> <span class="number">.0</span>.js</div><div class="line">wx.config(&#123;</div><div class="line">    <span class="attr">debug</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">appId</span>: <span class="string">"你的AppID"</span>,</div><div class="line">    <span class="attr">timestamp</span>: <span class="string">'时间戳(需要后台生成)'</span>,</div><div class="line">    <span class="attr">nonceStr</span>: <span class="string">'字符串(需要后台生成)'</span>,</div><div class="line">    <span class="attr">signature</span>: <span class="string">'签名(需要后台生成)'</span>,</div><div class="line">    <span class="attr">jsApiList</span>: [<span class="string">'onMenuShareTimeline'</span>, <span class="string">'onMenuShareAppMessage'</span>]</div><div class="line">    功能列表， 我们要使用JS - SDK的什么功能</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 调取ready方法,web view中注入的对象其实就是wx.read就是提供的一个方法，此处的匿名函数就是我们传递进去的callback， 当微信检测到已经准备就绪的时候就会把我们的callback执行 </span></div><div class="line">wx.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    获取“ 分享到朋友圈” 按钮点击状态及自定义分享内容接口 wx.onMenuShareTimeline(&#123; <span class="attr">title</span>: <span class="string">'分享标题'</span>, <span class="attr">link</span>: <span class="string">"分享的url,以http或https开头"</span>, <span class="attr">imgUrl</span>: <span class="string">"分享图标的url,以http或https开头"</span> &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]   伪装的URL或者伪装的协议</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">img</span>) </span>&#123; </div><div class="line"><span class="comment">//-&gt;打开摄像头拍照后执行的后续操作 img是拍下来的照片     </span></div><div class="line">&#125;     </div><div class="line"><span class="built_in">window</span>.location.href=<span class="string">"xieyi://phone?callback=fn"</span>; <span class="comment">//jsonp</span></div><div class="line"></div><div class="line"><span class="comment">//-&gt;xieyi:// 就是我们事先制定的一个假协议，这种协议都代表需要调取App的某个功能     </span></div><div class="line"><span class="comment">//-&gt;phone 这个标识是事先制定的需要调取拍照功能     </span></div><div class="line"><span class="comment">//-&gt;callback=fn 把自己JS中的某一个方法传递给App，App可以在拍照完成后执行这个方法，并且把保存的照片传递给这个方法(类似于JSONP)</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  Web主体型(目前比较新颖流行的方式)</p>
+</li>
+<li>[x]  单View混合型</li>
+</ul>
+<h2 id="高清屏"><a href="#高清屏" class="headerlink" title="高清屏"></a><strong>高清屏</strong></h2><blockquote>
+<p>苹果手机是2倍高清屏幕的，200<em>200的尺寸压缩100</em>100图片（苹果手机素材图需比尺寸大一倍）<br>h5一般只准备最大的图（影响需小尺寸手机性能）</p>
+</blockquote>
+<ul>
+<li><p>[ ]  <strong>DPI适配思想</strong>：</p>
+<blockquote>
+<p>最好每一张素材图片都准备两套或者三套，比如：<br>logo.png 100<em>100<br>logo@2x.png 200</em>200<br>logo@3x.png 300*300</p>
+</blockquote>
+</li>
+<li><p>[ ]  <strong>媒体查询 : @media</strong></p>
+<blockquote>
+<ul>
+<li>1)  媒体设备 : all所有设备 screen所有屏幕设备(PC、移动端 print打印机设备 …)</li>
+<li>2)  媒体条件 : 指定在什么样的条件下执行对应的样式<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@media all and (max-width:319px)&#123; //-&gt;宽度小于320px</div><div class="line">     .box&#123;</div><div class="line">        height:110px;</div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">@media all and (min-width:320px) and (max-width:359px)&#123;//-&gt; &gt;=320 &lt;360</div><div class="line">     .box&#123;</div><div class="line">        height:120px;</div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">@media all and (device-pixel-ratio:2.0)&#123;//-&gt; 2倍屏</div><div class="line">     .box&#123;</div><div class="line">        height:120px;</div><div class="line">     &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>苹果手机的尺寸:5s及以下都是320px 6是375px宽度 6plus是414px宽度<br>常用的安卓机尺寸:320、360、480、540、640、720…<br>在真实项目中，设计师给我们的设计稿一般都是：640<em>960 / 640</em>1136 / 750*1334</p>
+<h1 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h1><p><a href="http://old.zhufengpeixun.cn/qianduanjishuziliao/mobileDevelopment/2016-06-29/457.html" target="_blank" rel="external">meta标签参考</a><br><a href="http://old.zhufengpeixun.cn/qianduanjishuziliao/mobileDevelopment/2016-07-02/480.html" target="_blank" rel="external">移动端meta标签参考</a></p>
+<ul>
+<li><p>在不同的设备上都能给予客户最好的操作体验</p>
+</li>
+<li><p>[x]  搭建一个H5页面<strong>设置VP</strong>（两种方式）</p>
+<ul>
+<li>[ ]  添加一个META标签(WB中输入meta:vp按下TAB键自动生成)<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></div><div class="line">           <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- [ ]  JS动态设置VP:
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oMeta=<span class="built_in">document</span>.createElement(<span class="string">'meta'</span>);</div><div class="line"> oMeta.name=<span class="string">'viewport'</span>;</div><div class="line"> oMeta.content=<span class="string">'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'</span>;</div><div class="line"> <span class="built_in">document</span>.head.appendChild(oMeta);</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>[x]  各种参数概念</p>
+<ul>
+<li>[ ]   <code>viewport</code> : 视口</li>
+<li>[ ]   <code>width=device-width</code>设置为设备宽度,不设置时移动端默认980px (浏览器的宽度–设备宽变化时不缩小)</li>
+<li><p>移动端呈现pc端页面</p>
+<p>|设置与否|浏览器宽（clientWidth）|是否有滚动条|<br>|:–:|:–:|:–:|<br>|不设置|固定980/784|无滚动条，整个页面缩放呈现|<br>|设置|设备宽|有滚动条|</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- [ ]   `user-scalable=no`:禁止用户手动缩放
+
+- [ ]   `initial-scale=1.0、 maximum-scale=1.0、minimum-scale=1.0`设置屏幕最大、最小、默认的缩放比例
+</code></pre><h2 id="响应式布局的解决方案"><a href="#响应式布局的解决方案" class="headerlink" title="响应式布局的解决方案:"></a>响应式布局的<strong>解决方案</strong>:</h2><h3 id="流式布局法"><a href="#流式布局法" class="headerlink" title="流式布局法"></a>流式布局法</h3><ul>
+<li>[x]  <strong>不设固定宽</strong>，用百分比(相对于视口区域的百分比)</li>
+<li>[x]  <strong>其余的样式</strong> : 字体、高度、MARGIN、PADDING等设计稿上<strong>标注的一半</strong>来设置</li>
+<li>[x]  对于有些屏幕尺寸下,设置的固定值不好看的话,使用<strong>@media进行微调整</strong></li>
+</ul>
+<blockquote>
+<p><strong>常用尺寸</strong><br>苹果手机的尺寸:<br>4：320 <em> 480<br>5：320 </em> 568<br>6：375 <em> 627<br>6plus：414</em>736（3倍高清：一般要1280px的）<br>常用的安卓机尺寸:320、360、480、540、640、720…<br>在真实项目中，设计师给我们的设计稿一般都是：640<em>960 / 640</em>1136 / 750*1334</p>
+<p><strong>特殊情况</strong>：设计稿是640px，素材图也是640px的，此时在iphone6/iphone6 plus展示的时候，图片不够大需找设计师要一张更大的图，一般要1280px的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 处理特殊情况6/6p</div><div class="line">@media all and (-webkit-min-device-pixel-ratio: 2) and (min-width:321px)&#123;</div><div class="line">     .box&#123;</div><div class="line">        background:url(&apos;bannner@big.png&apos;)...</div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">//处理安卓大屏</div><div class="line">@media all and (min-width:641px)&#123;</div><div class="line">     .box&#123;</div><div class="line">        background:url(&apos;bannner@big.png&apos;)...</div><div class="line">     &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="REM响应式"><a href="#REM响应式" class="headerlink" title="REM响应式"></a><strong>REM响应式</strong></h3><ul>
+<li><p>元素的REM单位的样式值都针对HTML元素的<strong>fontSize的值</strong>进行动态计算的</p>
+</li>
+<li><p>[x]  H5页面<strong>只在移动端</strong>访问 ( REM <strong>不兼容低版本</strong> 的浏览器)</p>
+</li>
+</ul>
+<ul>
+<li><p>[x]  <strong>使用步骤</strong></p>
+<ul>
+<li><p>[ ]  <code>第一步</code>：拿到设计稿(PSD格式的设计稿) 640*1136</p>
+</li>
+<li><p>[ ]  <code>第二步</code>：在样式中给HTML<strong>设定fontSize的值</strong>，一般设置方便计算的值100px</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">100px</span>; <span class="comment">/*1REM=100PX*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- [ ]  `第三步`：写页面，写样式
+    - 完全按照设计稿的尺寸
+    - 需把得到的像素值除以100，计算出对应的REM的值
+
+&gt;**注意**：项目中外层盒子的宽一般不写固定值，沿用流式布局法的思想，用百分比的方式布局)
+&gt;<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">margin: 0 0.2rem;//代替width:6rem;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+
+
+- [ ]  `第四步`：**屏幕改变**：根据当前屏幕的宽度和设计稿的宽度来计算HTML的fontSize的值
+|设计稿|最大盒子|盒子样式|fontsize|
+|:---:|:---:|:--:|:--:|
+|640| 600*300|6rem*3rem|**暂定100** |
+
+|屏幕改变|最大盒子|盒子样式|fontsize|
+|:---:|:---:|:--:|:--:|
+|320|(5x50)*(3x50)|6rem*3rem|**改为50**|
+|375|6fs*3fs|6rem*3rem|**改为fs=(375/640)*100** |
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">~ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> desW = <span class="number">640</span>,</div><div class="line">        winW = <span class="built_in">document</span>.documentElement.clientWidth,</div><div class="line">        ratio = winW / desW;</div><div class="line">    <span class="comment">//-&gt;如果当前屏幕的宽度大于设计稿,为了保证图片的良好展示,以设计稿的宽度为最后宽度,剩余的部分留空白显示(京东...)</span></div><div class="line">    <span class="keyword">var</span> oMain = <span class="built_in">document</span>.getElementById(<span class="string">'main'</span>);</div><div class="line">    <span class="keyword">if</span> (winW &gt; desW) &#123;</div><div class="line">        oMain.style.width = desW + <span class="string">'px'</span>;</div><div class="line">        oMain.style.margin = <span class="string">'0 auto'</span>;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = ratio * <span class="number">100</span> + <span class="string">'px'</span>;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>拓展<br><strong>移动端-PC端跳转</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">~<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 符合移动</span></div><div class="line">    <span class="keyword">var</span> reg1 = <span class="regexp">/AppleWebKit.*Mobile/i</span>,</div><div class="line">        reg2 = <span class="regexp">/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/</span>;</div><div class="line">&gt; </div><div class="line">    <span class="comment">//-&gt;条件成立说明当前页面是运行在移动端设备中的</span></div><div class="line">    <span class="keyword">if</span> (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) &#123;</div><div class="line">&gt; </div><div class="line">        <span class="comment">//-&gt;如果当前页面的URL是PC端项目的地址:需要跳转到移动端项目</span></div><div class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.location.href.indexOf(<span class="string">"www.zhufengpeixun.cn"</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="built_in">window</span>.location.href = <span class="string">"http://phone.zhufengpeixun.cn/"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">&gt; </div><div class="line">    <span class="comment">//-&gt;反之则说明当前的页面是运行在PC端设备中的,如果访问的URL地址是移动端的,我们需要跳转到PC端地址上</span></div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.location.href.indexOf(<span class="string">"phone.zhufengpeixun.cn"</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line">        <span class="built_in">window</span>.location.href = <span class="string">"http://www.zhufengpeixun.cn/"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;();</div><div class="line">&gt; </div><div class="line">~<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reg1 = <span class="regexp">/AppleWebKit.*Mobile/i</span>,</div><div class="line">        reg2 = <span class="regexp">/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/</span>;</div><div class="line">    <span class="keyword">if</span> (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/iPad/i</span>.test(navigator.userAgent)) &#123;</div><div class="line">            <span class="comment">//-&gt;说明是PAD</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//-&gt;说明是手机</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;();</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2017/07/18/9.3-产品   流式布局     rem布局/" data-id="cj6wtgx67002u90vv75dyprln" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/07/21/9.4-移动端操作与事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          移动端操作与事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/07/18/9.3-GitHub/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Github</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

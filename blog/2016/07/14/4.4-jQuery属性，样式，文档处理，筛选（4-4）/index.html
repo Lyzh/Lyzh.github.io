@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery属性，样式，文档处理，筛选（4-4） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery属性，样式，文档处理，筛选（4-4）">
+<meta property="og:url" content="http://lyzh.tk/blog/2016/07/14/4.4-jQuery属性，样式，文档处理，筛选（4-4）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jQuery">
+<meta property="og:updated_time" content="2017-09-12T09:50:23.984Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery属性，样式，文档处理，筛选（4-4）">
+<meta name="twitter:description" content="jQuery">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lyzh.tk/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-4.4-jQuery属性，样式，文档处理，筛选（4-4）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/07/14/4.4-jQuery属性，样式，文档处理，筛选（4-4）/" class="article-date">
+  <time datetime="2016-07-14T06:00:00.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery属性，样式，文档处理，筛选（4-4）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery<br><a id="more"></a></p>
+<h1 id="jQuery-常用方法（回调函数）"><a href="#jQuery-常用方法（回调函数）" class="headerlink" title="jQuery 常用方法（回调函数）"></a>jQuery 常用方法（回调函数）</h1><ul>
+<li>[x]  jQuery中的回调函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $callback = $.Callbacks(); <span class="comment">//把jQuery身上的Callback属性找到并且执行</span></div><div class="line">    <span class="comment">//可以把这个理解成一个数组 ==&gt; 回调函数集合 []</span></div><div class="line">    <span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'fn1: '</span> + val)  &#125;</div><div class="line">    <span class="keyword">var</span> fn2 =  <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'fn2: '</span> + val) &#125;</div><div class="line"></div><div class="line">    $callback.add(fn1); <span class="comment">//把fn1和fn2分别添加到这个回调函数集合中 [fn1,fn2]</span></div><div class="line">    $callback.add(fn2);</div><div class="line"></div><div class="line">    <span class="comment">//回调函数集合中的所有函数执行</span></div><div class="line">    $callback.fire(<span class="number">100</span>);</div><div class="line"></div><div class="line">    $callback.remove(fn1);</div><div class="line"></div><div class="line">    $callback.fire(<span class="number">200</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>[x]  jQuery中常这么用回调函数<code>$(function() {})</code> 等同于&lt;–&gt; <code>$(document).ready(function() {})</code><br>作用<ul>
+<li>HTML加载完</li>
+<li>形成一个闭包</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> 	</div><div class="line"> &#125;)</div><div class="line"> </div><div class="line"><span class="comment">// 对应于原生js的</span></div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123; </div><div class="line">	<span class="comment">// 页面html,image等所有资源加载结束之后执行 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="jQuery-常用方法"><a href="#jQuery-常用方法" class="headerlink" title="jQuery 常用方法"></a>jQuery 常用方法</h1><h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><ul>
+<li><p>[x]  <code>attr(attr, val)</code>获取设置元素属性</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$mydiv.attr(<span class="string">'name'</span>, <span class="string">'li'</span>);</div><div class="line">$mydiv.attr(&#123;</div><div class="line">    <span class="attr">index</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">name</span>: <span class="string">"你好"</span></div><div class="line">&#125;);</div><div class="line">$mydiv.removeAttr(<span class="string">'name'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  <code>prop()</code>获取设置元素属性（和attr属于两套方式，不能混用）<br>内置可提现在HTML结构中提现出，不是内置的不能提现但可获取值</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$mydiv.prop(<span class="string">'name'</span>, <span class="string">"li"</span>); <span class="comment">//设置成功，但是在行内看不到</span></div><div class="line">$mydiv.prop(<span class="string">'style'</span>, <span class="string">"width:100%"</span>); <span class="comment">//设置成功,行内可见</span></div><div class="line">$mydiv.removeProp(<span class="string">'name'</span>);</div><div class="line">$mydiv.prop(&#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"你好"</span></div><div class="line">    <span class="string">'style'</span>, <span class="string">"width:100%"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>attr和prop的区别</strong><br>attr一般用于自定义属性<br>prop一般用于内置属性（尤其表单元素操作）<br>    $(‘input’).prop(‘checked’, true);     //设置选中</p>
+</blockquote>
+<ul>
+<li><p>[x]  <code>class类的</code></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'div'</span>,$mydiv).addClass(<span class="string">'children'</span>);<span class="comment">//上下文$mydiv的所有div添加class(每个元素调用addClass())</span></div><div class="line">$(<span class="string">'div'</span>,$mydiv).removeClass(<span class="string">'children'</span>); </div><div class="line">$(<span class="string">'div'</span>,$mydiv).toggleClass(<span class="string">'children'</span>); <span class="comment">//如有c1那么就删除，如没有c1那么就添加</span></div></pre></td></tr></table></figure>
+<ul>
+<li>[ ]  <strong>jQuery中的遍历</strong> 等同于<code>$(&#39;div&#39;,$mydiv).addClass(&#39;children&#39;);</code></li>
+<li><p>for循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $childList=$(<span class="string">'div'</span>,$mydiv);</div><div class="line"><span class="keyword">var</span> $childList=$(<span class="string">'div'</span>,$mydiv);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;childList.length;i++)&#123;</div><div class="line">        $($childList[i]).addClass(<span class="string">"children"</span>);<span class="comment">//$childList[i]是原生js元素</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>each() :</strong>可以遍历jQuery集合中每一项（和数组中forEach类似，参数相反）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $childList=$(<span class="string">'div'</span>,$mydiv);</div><div class="line">$childList.each(<span class="function"><span class="keyword">function</span>(<span class="params">index,item</span>)</span>&#123;</div><div class="line">   </div><div class="line">    $(<span class="keyword">this</span>).addClass(<span class="string">"children"</span>);<span class="comment">//this--&gt;当前遍历这一项的内容item     </span></div><div class="line"><span class="comment">// $(item).addClass("children");</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  <code>html()、text()、val()</code></p>
+<ul>
+<li><p>[ ]  html() <code>==&gt;</code> innerHTML</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$mydiv.html(); <span class="comment">//获取$mydiv的html</span></div><div class="line">$mydiv.html(<span class="string">"aaaa"</span>) <span class="comment">//设置$mydiv的html为aaaa</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]  text() <code>==&gt;</code> innerText</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">    $mydiv.text(); <span class="comment">// 获取</span></div><div class="line">$mydiv.text(<span class="string">'fff'</span>); <span class="comment">//设置</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]  val() 表单元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">    $(<span class="string">'#input'</span>).val(); <span class="comment">//获取</span></div><div class="line">$(<span class="string">'input'</span>).val(<span class="number">2</span>+<span class="string">"你好"</span>); <span class="comment">//设置</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS设置获取样式"><a href="#CSS设置获取样式" class="headerlink" title="CSS设置获取样式"></a>CSS设置获取样式</h2><ul>
+<li><p>[x]  <code>css()</code></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$mydiv.css(<span class="string">'width'</span>,<span class="string">'300'</span>);</div><div class="line">$mydiv.css(&#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'400px'</span>,</div><div class="line">    <span class="attr">height</span>: <span class="string">'400px'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  <code>offset()</code></p>
+<ul>
+<li><p>获取距离body的偏移量(top/left不管父级参照物是谁)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#child3"</span>).offset()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  <code>css()</code></p>
+<ul>
+<li><p>获取相对于父级参照物的偏移（top/left）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#child3"</span>).position()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  <code>height(),width()</code></p>
+<ul>
+<li>设置的内容宽无padding<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mydiv.height();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  <code>innerWidth(),innerHeight()</code>可视区宽高</p>
+<ul>
+<li>等同于<code>clientWidth clientHeight</code> 无边框<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mydiv.innerHeight();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  <code>outerWidth(),outerHeight()</code></p>
+<ul>
+<li>等同于<code>offsetWidth offsetHeight</code> 加边框</li>
+<li>设置为 true 时，计算边距在内<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$mydiv.outerHeight();<span class="comment">//不算margin</span></div><div class="line">$mydiv.outerHeight(<span class="literal">true</span>);<span class="comment">//算margin</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>inner\outer设置的都一样（改变的是height/width=参数-(padding+border)）</p>
+</blockquote>
+<ul>
+<li><p>[x]  <code>scrollLeft(val),scrollTop(val)</code></p>
+<ul>
+<li>原生js也只有这两个属性接受重新赋值<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mydiv.scrollLeft();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="文档处理"><a href="#文档处理" class="headerlink" title="文档处理"></a>文档处理</h2><p>创建个新元素newspan<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newspan = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>);</div><div class="line">newspan.id = <span class="string">"newspan"</span>; <span class="comment">//未添加，所以juery无法通过id获取新元素</span></div><div class="line"></div><div class="line">$(<span class="string">"#newspan"</span>)   <span class="comment">//--&gt;  [] </span></div><div class="line">newspan         <span class="comment">//--&gt; &lt;span id=​"newspan"&gt;​&lt;/span&gt;​</span></div><div class="line">$(newspan)      <span class="comment">//--&gt; [&lt;span id=​"newspan"&gt;​&lt;/span&gt;​]</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>因此下面采用jQuery对象<code>$(&quot;#newspan&quot;)</code>或原生js对象<code>newspan</code>添加元素都可以</p>
+</li>
+<li><p>[x]  父级与子级添加</p>
+</li>
+<li><p>[ ]  append(par)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$mydiv.append($(newspan));<span class="comment">//或者$mydiv.append(newspan);</span></div><div class="line">$(newspan).appendTo($mydiv); <span class="comment">//和append的用法正好相反</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ]  prepend(child)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$mydiv.prepend(newspan);</div><div class="line">$(newspan).prependTo($mydiv)</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  同级追加</p>
+</li>
+<li><p>[ ] after(ele)、before(ele)  <code>等同css的</code>:before(在前面添加)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$mydiv.after(newspan);</div><div class="line">$mydiv.before($(newspan));</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] insertAfter 、insertBefore <code>--&gt;</code> 容器中指定元素前后追加新元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(newspan).insertBefore($mydiv);</div><div class="line">$(newspan).insertAfter($mydiv);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]   wrap 包裹 <code>--&gt;</code> 用参数这个标签包裹住mydiv</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mydiv.wrap(<span class="string">'&lt;div class="parent"&gt;&lt;/div&gt;'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  replaceAll  <code>等同js</code> replaceChild(new, old)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#child1"</span>).replaceAll(<span class="string">"div"</span>);<span class="comment">//$("#child1")替换所有div标签元素</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  remove  <code>等同js</code> removeChild()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   $(<span class="string">".children"</span>).remove();</div><div class="line">$(<span class="string">".children"</span>).remove(<span class="string">"#child1"</span>);<span class="comment">//移除集合中的id为child1的元素</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  clone()  <code>等同js</code>cloneNode();</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bro1 = <span class="built_in">document</span>.getElementById(<span class="string">"bro1"</span>);</div><div class="line">$(<span class="string">".children"</span>).clone().prependTo($(bro1));</div><div class="line">$(bro1).prepend($(<span class="string">".children"</span>).clone());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="筛选（集合中选出想要的元素）"><a href="#筛选（集合中选出想要的元素）" class="headerlink" title="筛选（集合中选出想要的元素）"></a>筛选（集合中选出想要的元素）</h2><ul>
+<li><p>[x]  检索</p>
+<ul>
+<li>eq(index)；index为负值时时倒数第几个</li>
+<li>first()</li>
+<li>last();<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).eq(<span class="number">0</span>);</div><div class="line">$(<span class="string">"div"</span>).first();</div><div class="line">$(<span class="string">"div"</span>).last();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>[x]  hasClass(classname);<code>--&gt;</code>检测当前元素中是否包含某一样式类名（返回布尔值）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).hasClass(<span class="string">"children"</span>);<span class="comment">//true</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>[x]  常用筛选方法</p>
+</li>
+<li><p>[ ] filter()<code>--&gt;</code>同级过滤(首先通过选择器获取一个集合，在获取的内容中进行二次筛选)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"*"</span>,$mydiv).filter(<span class="string">"div"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] children()<code>--&gt;</code>子级过滤</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#mydiv"</span>).children() --&gt;所有艺元素</div><div class="line">$(<span class="string">"#mydiv"</span>).children(<span class="string">"#child2"</span>)</div><div class="line">$(<span class="string">"#mydiv"</span>).children(<span class="string">"div"</span>) </div><div class="line">$(<span class="string">"#mydiv"</span>).children(<span class="string">"#child1,#child3"</span>); </div><div class="line">$(<span class="string">"#mydiv"</span>).children(<span class="string">"[name='elvira']"</span>); </div><div class="line">$(<span class="string">"#mydiv"</span>).children(<span class="string">"[name]"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>[ ] find() <code>--&gt;</code>所有后代过滤(必须传参，否则空)</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#mydiv"</span>).find(); --&gt;空</div><div class="line">$(<span class="string">"#mydiv"</span>).find(<span class="string">"div"</span>); --&gt;$(<span class="string">"#mydiv div"</span>)</div><div class="line">$(<span class="string">"#mydiv"</span>).find(<span class="string">"[name='elvira']"</span>); --&gt;$(<span class="string">"#mydiv [name='elvira']"</span></div></pre></td></tr></table></figure>
+<p>三个区别</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$mydiv.children("div");</div><div class="line">[ &lt; div class = ​"children" id = ​"child1" &gt; ​我是child1​ &lt; /div&gt;​,  </div><div class="line">    &lt;div class = ​"children" id = ​"child2" &gt; ​…​ &lt; /div &gt; ​,</div><div class="line">    &lt;div class = ​"children" id = ​"child3 " &gt; ​我是child3​ &lt; /div&gt;​</div><div class="line">]</div><div class="line"></div><div class="line">$mydiv.find("div");</div><div class="line">[ &lt;div class = ​"children" id = ​"child1" &gt; ​我是child1​ &lt; /div&gt;​,  </div><div class="line">    &lt;div class = ​"children" id = ​"child2" &gt; ​…​ &lt; /div &gt; ​,</div><div class="line">    &lt;div class = ​"gran" &gt; ​gran1​ &lt; /div&gt;​, </div><div class="line">    &lt;div class = ​"gran" &gt; ​gran2​ &lt; /div &gt; ​, </div><div class="line">    &lt;div class = ​"gran" &gt; ​gran3​ &lt; /div&gt;​,  </div><div class="line">    &lt;div class = ​"children" id = ​"child3 " &gt; ​我是child3​ &lt; /div &gt;​]</div><div class="line"></div><div class="line">$mydiv.filter("div");</div><div class="line">[ &lt; div id = ​"mydiv" &gt; ​…​ &lt; /div&gt;​]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lyzh.tk/blog/2016/07/14/4.4-jQuery属性，样式，文档处理，筛选（4-4）/" data-id="cj6wtgx4i001790vvyed8zktq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/07/14/4.4-jQuery选择器（4-4）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery选择器（4-4）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/14/4.4-jQuery的ajax、事件、工具、动画（4-4）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery的ajax、事件、工具、动画（4-4）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JSONP/">JSONP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/function/">function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css/">html+css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-mark/">html+css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-总结/">html+css 总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html-css-移动端/">html+css 移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item/">item</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-Ajax/">item Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-jQuery/">item jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/item-js-css-mark/">item js css mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-事件/">js DOM 事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-DOM-盒子模型/">js DOM 盒子模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-作用域内存/">js ECMAScript 作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-ECMAScript-面向对象/">js ECMAScript 面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/js-function/">js function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/事件/">事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/作用域内存/">作用域内存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/移动端/">移动端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/Array/" style="font-size: 12px;">Array</a> <a href="/blog/tags/DOM/" style="font-size: 14px;">DOM</a> <a href="/blog/tags/JSON/" style="font-size: 12px;">JSON</a> <a href="/blog/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/blog/tags/RegExp/" style="font-size: 12px;">RegExp</a> <a href="/blog/tags/animation/" style="font-size: 14px;">animation</a> <a href="/blog/tags/function/" style="font-size: 12px;">function</a> <a href="/blog/tags/html-css/" style="font-size: 16px;">html+css</a> <a href="/blog/tags/html-css-mark/" style="font-size: 10px;">html+css mark</a> <a href="/blog/tags/html-css-总结/" style="font-size: 10px;">html+css 总结</a> <a href="/blog/tags/html-css-移动端/" style="font-size: 10px;">html+css 移动端</a> <a href="/blog/tags/item/" style="font-size: 20px;">item</a> <a href="/blog/tags/item-Ajax/" style="font-size: 10px;">item Ajax</a> <a href="/blog/tags/item-jQuery/" style="font-size: 10px;">item jQuery</a> <a href="/blog/tags/item-js-css-mark/" style="font-size: 10px;">item js css mark</a> <a href="/blog/tags/jQuery/" style="font-size: 16px;">jQuery</a> <a href="/blog/tags/js-DOM-事件/" style="font-size: 10px;">js DOM 事件</a> <a href="/blog/tags/js-DOM-盒子模型/" style="font-size: 10px;">js DOM 盒子模型</a> <a href="/blog/tags/js-ECMAScript-作用域内存/" style="font-size: 10px;">js ECMAScript 作用域内存</a> <a href="/blog/tags/js-ECMAScript-面向对象/" style="font-size: 10px;">js ECMAScript 面向对象</a> <a href="/blog/tags/js-function/" style="font-size: 10px;">js function</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/node-js/" style="font-size: 16px;">node.js</a> <a href="/blog/tags/事件/" style="font-size: 10px;">事件</a> <a href="/blog/tags/作用域内存/" style="font-size: 18px;">作用域内存</a> <a href="/blog/tags/总结/" style="font-size: 10px;">总结</a> <a href="/blog/tags/移动端/" style="font-size: 14px;">移动端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2017/10/12/解决chrome内核浏览器中打开Axure生成的html文件自动跳转到下载插件（Axure RP Extension f/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/4.4-折叠菜单 & 选项卡jQuery（4-4）/">折叠菜单 &amp; 选项卡jQuery（4-4）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-call、apply、bind（2-2）/">call、apply、bind（2-2）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/1.2-惰性思想（封装单例模式、函数重新覆盖）/">惰性思想（封装单例模式、函数重新覆盖）</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2017/08/29/2.2-表格排序实例（2-2）/">表格排序实例（2-2）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
